@@ -1,0 +1,149 @@
+﻿@model ProyectoProgramaciónAvanzadaWeb.Models.Usuario
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Crear Usuario";
+}
+
+<div class="pagetitle">
+    <h1>Editar Usuario</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item">Usuarios</li>
+            <li class="breadcrumb-item active">Editar</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Editar Usuario</h5>
+
+                    <!-- Formulario de Edición de Usuario -->
+                    <form asp-action="Edit" class="needs-validation" novalidate>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        
+                        <input type="hidden" asp-for="IdUsuario" />
+
+                        <div class="row mb-3">
+                            <div class="col-sm-6">
+                                <label for="Nombre" class="col-form-label">Nombre</label>
+                                <input asp-for="Nombre" class="form-control" id="Nombre" required>
+                                <div class="invalid-feedback">Por favor, ingrese un nombre.</div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="Apellidos" class="col-form-label">Apellidos</label>
+                                <input asp-for="Apellidos" class="form-control" id="Apellidos" required>
+                                <div class="invalid-feedback">Por favor, ingrese los apellidos.</div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-sm-6">
+                                <label for="Rol" class="col-form-label">Rol</label>
+                                <select asp-for="Rol" class="form-control" id="Rol">
+                                    <option value="Administrador">Administrador</option>
+                                    <option value="Usuario">Usuario</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="Sexo" class="col-form-label">Sexo</label>
+                                <select asp-for="Sexo" class="form-control" id="Sexo">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-sm-6">
+                                <label for="Contraseña" class="col-form-label">Contraseña</label>
+                                <input type="password" asp-for="Contraseña" class="form-control" id="Contraseña" required value="@Model.Contraseña">
+                                <div class="invalid-feedback">Por favor, ingrese una contraseña.</div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="ConfirmarContraseña" class="col-form-label">Confirmar Contraseña</label>
+                                <input type="password" class="form-control" id="ConfirmarContraseña" required value="@Model.Contraseña">
+                                <div class="invalid-feedback">Por favor, confirme la contraseña.</div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-sm-6">
+                                <label for="Cedula" class="col-form-label">Cedula</label>
+                                <input asp-for="Cedula" class="form-control" id="Cedula">
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="NumeroTelefono" class="col-form-label">Teléfono</label>
+                                <input asp-for="NumeroTelefono" class="form-control" id="NumeroTelefono">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-sm-6">
+                                <label for="CorreoElectronico" class="col-form-label">Correo Electrónico</label>
+                                <input type="email" asp-for="CorreoElectronico" class="form-control" id="CorreoElectronico" required>
+                                <div class="invalid-feedback">Por favor, ingrese una dirección de correo válida.</div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="Direccion" class="col-form-label">Dirección</label>
+                                <input asp-for="Direccion" class="form-control" id="Direccion">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-sm-12">
+                                <label for="Direccion" class="col-form-label">Dirección</label>
+                                <textarea asp-for="Direccion" class="form-control" id="Direccion" rows="4"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary mx-2">Editar</button>
+                            <a asp-action="Index" class="btn btn-secondary mx-2">Volver a la Lista</a>
+                        </div>
+                    </form><!-- End Formulario de Edición de Usuario -->
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Recomendaciones</h5>
+                    <ul>
+                        <li>El campo "Nombre" no puede tener menos de 4 letras.</li>
+                        <li>El campo "Apellidos" es obligatorio.</li>
+                        <li>La "Contraseña" debe tener al menos 8 caracteres.</li>
+                        <li>La "Confirmar Contraseña" debe coincidir con la contraseña.</li>
+                        <li>El campo "Nombre" no puede contener caracteres especiales.</li>
+                        <li>La "Contraseña" debe contener al menos una letra mayúscula y un número.</li>
+                        <li>El "Correo Electrónico" debe estar en formato ejemplo@dominio.com.</li>
+                        <li>El "Nombre" no puede ser igual al "Apellidos".</li>
+                        <li>La "Contraseña" debe contener al menos un carácter especial (por ejemplo, #, $).</li>
+                        <li>El "Nombre" no puede contener espacios en blanco al principio o al final.</li>
+                        <li>El "Nombre" no puede ser una palabra ofensiva o inapropiada.</li>
+                        <li>La "Cedula" debe ser un número válido emitido por la entidad correspondiente (si se ingresa).</li>
+                        <li>El "Número de Teléfono" no puede contener letras o caracteres especiales (si se ingresa).</li>
+                        <li>La "Dirección" no puede ser demasiado corta.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

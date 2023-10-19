@@ -1,0 +1,68 @@
+﻿@model ProyectoProgramaciónAvanzadaWeb.Models.Usuario
+
+@{
+    Layout = "~/Views/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Crear Usuario";
+}
+
+<div class="pagetitle">
+    <h1>Detalles de Usuario</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item">Usuarios</li>
+            <li class="breadcrumb-item active">Detalles</li>
+        </ol>
+    </nav>
+</div><!-- End Page Title -->
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Detalles de Usuario</h5>
+
+                    <dl class="row">
+                        <dt class="col-sm-6">Id</dt>
+                        <dd class="col-sm-6">@Model.IdUsuario</dd>
+
+                        <dt class="col-sm-6">Nombre</dt>
+                        <dd class="col-sm-6">@Model.Nombre</dd>
+
+                        <dt class="col-sm-6">Apellidos</dt>
+                        <dd class="col-sm-6">@Model.Apellidos</dd>
+
+                        <dt class="col-sm-6">Rol</dt>
+                        <dd class="col-sm-6">@Model.Rol</dd>
+
+                        <dt class="col-sm-6">Sexo</dt>
+                        <dd class="col-sm-6">@Model.Sexo</dd>
+
+                        <dt class="col-sm-6">Cedula</dt>
+                        <dd class="col-sm-6">@Model.Cedula</dd>
+
+                        <dt class="col-sm-6">Teléfono</dt>
+                        <dd class="col-sm-6">@Model.NumeroTelefono</dd>
+
+                        <dt class="col-sm-6">Correo Electrónico</dt>
+                        <dd class="col-sm-6">@Model.CorreoElectronico</dd>
+
+                        <dt class="col-sm-6">Dirección</dt>
+                        <dd class="col-sm-6">@Model.Direccion</dd>
+                    </dl>
+                    <div class="d-flex justify-content-center">
+                        <a asp-action="Edit" asp-route-id="@Model.IdUsuario" class="btn btn-primary mx-2">Editar</a>
+                        <a asp-action="Index" class="btn btn-secondary mx-2">Volver a la Lista</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
