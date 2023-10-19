@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TiendaVehiculos.Models;
+using ProyectoProgramaciónAvanzadaWeb.Models;
 using System.Reflection.Emit;
 
-namespace TiendaVehiculos.Data
+namespace ProyectoProgramaciónAvanzadaWeb.Data
 {
     public class TiendaVehiculosContext : IdentityDbContext<IdentityUser>
     {
@@ -27,7 +27,7 @@ namespace TiendaVehiculos.Data
                 new IdentityRole() { Name = "Admin", ConcurrencyStamp = "1", NormalizedName = "Admin" },
                 new IdentityRole() { Name = "User", ConcurrencyStamp = "2", NormalizedName = "User" }
                 );
-        }  
+        }
 
         public DbSet<Carro> Carros { get; set; }
         public DbSet<Categoria> Categorias { get; set; }

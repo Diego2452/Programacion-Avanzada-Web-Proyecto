@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using ProyectoProgramaciónAvanzadaWeb.Models;
+using System.Diagnostics;
 
 namespace ProyectoProgramaciónAvanzadaWeb.Pages
 {

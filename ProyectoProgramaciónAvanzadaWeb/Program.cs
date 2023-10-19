@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using TiendaVehiculos.Data;
+using ProyectoProgramaciónAvanzadaWeb.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,10 +11,10 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 builder.Services.AddDbContext<TiendaVehiculosContext>(options => options.UseSqlServer(configuration.GetConnectionString("TiendaVehiculosContext")));
 
-// For Identity
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<TiendaVehiculosContext>()
-    .AddDefaultTokenProviders();
+//// For Identity
+//builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+//    .AddEntityFrameworkStores<TiendaVehiculosContext>()
+//    .AddDefaultTokenProviders();
 
 // Adding Authentication
 builder.Services.AddAuthentication(options =>
@@ -29,8 +29,8 @@ builder.Services.AddAuthentication(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<TiendaVehiculosContext>(opciones =>
-opciones.UseSqlServer(builder.Configuration.GetConnectionString("TiendaVehiculosContext")));
+//builder.Services.AddDbContext<TiendaVehiculosContext>(opciones =>
+//opciones.UseSqlServer(builder.Configuration.GetConnectionString("TiendaVehiculosContext")));
 
 builder.Services.AddRazorPages();
 
