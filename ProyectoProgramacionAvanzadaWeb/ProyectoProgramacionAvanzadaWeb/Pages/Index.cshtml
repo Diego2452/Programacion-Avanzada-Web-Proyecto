@@ -1,0 +1,471 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="hero d-flex align-items-center section-bg">
+    <div class="container">
+        <div class="row justify-content-between gy-5">
+            <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+                <h2 data-aos="fade-up">Descubre una Experiencia<br />Única en Automóviles</h2>
+                <p data-aos="fade-up" data-aos-delay="100">
+                    Encuentra el vehículo perfecto que se adapte a tu estilo de vida. Ofrecemos una amplia selección de automóviles de calidad.
+                </p>
+                <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#contact" class="btn-book-a-table">Contáctanos</a>
+                </div>
+            </div>
+            <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+                <img src="assetsHome/img/hero.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300" />
+            </div>
+        </div>
+    </div> 
+</section> 
+<!-- End Hero Section -->
+
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Sobre Nuestra Concesionaria</h2>
+            <p>Descubre más <span>Sobre Nosotros</span></p>
+        </div>
+
+        <div class="row gy-4">
+            <div class="col-lg-7 position-relative about-img"
+                 style="background-image: url(assetsHome/img/about_1.jpg)"
+                 data-aos="fade-up"
+                 data-aos-delay="150">
+                <div class="call-us position-absolute">
+                    <h4>Contacto</h4>
+                    <p>+506 2222-2222</p>
+                </div>
+            </div>
+            <div class="col-lg-5 d-flex align-items-end"
+                 data-aos="fade-up"
+                 data-aos-delay="300">
+                <div content ps-0 ps-lg-5>
+                    <p class="fst-italic">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                        do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <ul>
+                        <li>
+                            <i class="bi bi-check2-all"></i> Explora nuestra amplia gama de vehículos en venta.
+                        </li>
+                        <li>
+                            <i class="bi bi-check2-all"></i> Personal capacitado para ayudarte en la compra de tu automóvil.
+                        </li>
+                        <li>
+                            <i class="bi bi-check2-all"></i> Ofrecemos opciones de financiamiento para tu comodidad.
+                        </li>
+                    </ul>
+                    <p>
+                        Estamos comprometidos a ofrecer vehículos de alta calidad y un servicio al cliente excepcional. Visita nuestra concesionaria hoy mismo para encontrar el automóvil de tus sueños.
+                    </p>
+
+                    <div class="position-relative mt-4">
+                        <img src="assetsHome/img/about_2.jpg"
+                             class="img-fluid"
+                             alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End About Section -->
+
+<!-- ======= Why Us Section ======= -->
+<section id="why-us" class="why-us section-bg">
+    <div class="container" data-aos="fade-up">
+        <div class="row gy-4">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="why-box">
+                    <h3>¿Por qué elegirnos?</h3>
+                    <p>
+                        En nuestra concesionaria, estamos comprometidos a brindarte la mejor experiencia al comprar un vehículo. Contamos con una amplia gama de automóviles de alta calidad para satisfacer tus necesidades. Nuestro equipo de expertos está aquí para ayudarte a encontrar el automóvil perfecto.
+                    </p>
+                    <div class="text-center">
+                        <a href="#" class="more-btn">
+                            Aprende más <i class="bx bx-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 d-flex align-items-center">
+                <div class="row gy-4">
+                    <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                            <i class="bi bi-clipboard-data"></i>
+                            <h4>Vehículos de Calidad</h4>
+                            <p>
+                                Ofrecemos vehículos de alta calidad que han pasado rigurosas inspecciones. Garantizamos la satisfacción de nuestros clientes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                            <i class="bi bi-gem"></i>
+                            <h4>Atención Personalizada</h4>
+                            <p>
+                                Nuestro equipo de ventas está comprometido a proporcionarte un servicio personalizado. Te ayudaremos a encontrar el vehículo ideal para ti.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                            <i class="bi bi-inboxes"></i>
+                            <h4>Opciones de Financiamiento</h4>
+                            <p>
+                                Ofrecemos diversas opciones de financiamiento para que puedas adquirir tu vehículo de manera conveniente y accesible.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Why Us Section -->
+
+<!-- ======= Events Section ======= -->
+<section id="events" class="events">
+    <div class="container-fluid" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Eventos Especiales</h2>
+            <p>Comparte <span>Tus Momentos</span> en Nuestra Concesionaria</p>
+        </div>
+
+        <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide event-item d-flex flex-column justify-content-end"
+                     style="background-image: url(assetsHome/img/events1.jpg)">
+                    <h3>Exposición de Vehículos</h3>
+                    <div class="price align-self-start">¡Entrada Gratuita!</div>
+                    <p class="description">
+                        ¡Únete a nuestra exposición de vehículos personalizados! Explora los últimos modelos y diseños únicos. ¡No te lo pierdas!
+                    </p>
+                </div>
+                <!-- Fin del elemento del evento -->
+
+                <div class="swiper-slide event-item d-flex flex-column justify-content-end"
+                     style="background-image: url(assetsHome/img/events2.webp)">
+                    <h3>Prueba de Manejo</h3>
+                    <div class="price align-self-start">¡Reserva Ahora!</div>
+                    <p class="description">
+                        Experimenta la emoción de conducir nuestros vehículos. Reserva una prueba de manejo y descubre tu automóvil ideal.
+                    </p>
+                </div>
+                <!-- Fin del elemento del evento -->
+
+                <div class="swiper-slide event-item d-flex flex-column justify-content-end"
+                     style="background-image: url(assetsHome/img/events3.jpg)">
+                    <h3>Evento de Descuentos</h3>
+                    <div class="price align-self-start">¡Grandes Ofertas!</div>
+                    <p class="description">
+                        ¡No te pierdas nuestro evento de descuentos! Ofrecemos precios especiales en una amplia gama de vehículos. Ven y ahorra.
+                    </p>
+                </div>
+                <!-- Fin del elemento del evento -->
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+<!-- End Events Section -->
+
+<!-- ======= Servicios Section ======= -->
+<section id="chefs" class="chefs section-bg">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Servicios</h2>
+            <p>Nuestros <span>Servicios</span></p>
+        </div>
+
+        <div class="row gy-4">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch"
+                 data-aos="fade-up"
+                 data-aos-delay="100">
+                <div class="chef-member">
+                    <div class="member-img">
+                        <img src="assetsHome/img/servicios/nuevos.webp"
+                             class="img-fluid"
+                             alt="" />
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>Venta de Vehículos Nuevos</h4>
+                        <p>
+                            Explora nuestra amplia selección de vehículos nuevos de las mejores marcas. Encuentra tu automóvil perfecto.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Chefs Member -->
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch"
+                 data-aos="fade-up"
+                 data-aos-delay="300">
+                <div class="chef-member">
+                    <div class="member-img">
+                        <img src="assetsHome/img/servicios/usados.webp"
+                             class="img-fluid"
+                             alt="" />
+                        <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i></a>
+                            <a href=""><i class="bi bi-facebook"></i></a>
+                            <a href=""><i class="bi bi-instagram"></i></a>
+                            <a href=""><i class="bi bi-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h4>Vehículos Usados Certificados</h4>
+                        <p>
+                            Descubre nuestra selección de vehículos usados certificados. Garantizamos calidad y confiabilidad en cada automóvil.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Chefs Member -->
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch"
+                 data-aos="fade-up"
+                 data-aos-delay="300">
+                <div class="chef-member">
+                    <div class="member-img">
+                        <img src="assetsHome/img/servicios/mantenimiento.jpg"
+                             class="img-fluid"
+                             alt="" />
+                        
+                    </div>
+                    <div class="member-info">
+                        <h4>Servicio de Mantenimiento</h4>
+                        <p>
+                            Confía en nuestros expertos para el mantenimiento de tu vehículo. Ofrecemos servicios de alta calidad para mantener tu automóvil en óptimas condiciones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- End Chefs Member -->
+        </div>
+    </div>
+</section>
+<!-- End Chefs Section -->
+
+<!-- ======= Gallery Section ======= -->
+<section id="gallery" class="gallery section-bg">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Galería</h2>
+            <p>Explora <span>Nuestra Galería</span></p>
+        </div>
+
+        <div class="gallery-slider swiper">
+            <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                    <a class="glightbox"
+                       data-gallery="images-gallery"
+                       href="~/assetsHome/img/gallery/vehiculo-1.jpg">
+                        <img src="~/assetsHome/img/gallery/vehiculo-1.jpg"
+                             class="img-fluid"
+                             alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="glightbox"
+                       data-gallery="images-gallery"
+                       href="~/assetsHome/img/gallery/vehiculo-2.jpg">
+                        <img src="~/assetsHome/img/gallery/vehiculo-2.jpg"
+                             class="img-fluid"
+                             alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="glightbox"
+                       data-gallery="images-gallery"
+                       href="~/assetsHome/img/gallery/vehiculo-3.jpg">
+                        <img src="~/assetsHome/img/gallery/vehiculo-3.jpg"
+                             class="img-fluid"
+                             alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="glightbox"
+                       data-gallery="images-gallery"
+                       href="~/assetsHome/img/gallery/vehiculo-4.jpg">
+                        <img src="~/assetsHome/img/gallery/vehiculo-4.jpg"
+                             class="img-fluid"
+                             alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="glightbox"
+                       data-gallery="images-gallery"
+                       href="~/assetsHome/img/gallery/vehiculo-5.webp">
+                        <img src="~/assetsHome/img/gallery/vehiculo-5.webp"
+                             class="img-fluid"
+                             alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="glightbox"
+                       data-gallery="images-gallery"
+                       href="~/assetsHome/img/gallery/vehiculo-6.jpg">
+                        <img src="~/assetsHome/img/gallery/vehiculo-6.jpg"
+                             class="img-fluid"
+                             alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="glightbox"
+                       data-gallery="images-gallery"
+                       href="~/assetsHome/img/gallery/vehiculo-7.jpg">
+                        <img src="~/assetsHome/img/gallery/vehiculo-7.jpg"
+                             class="img-fluid"
+                             alt="" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a class="glightbox"
+                       data-gallery="images-gallery"
+                       href="~/assetsHome/img/gallery/vehiculo-8.webp">
+                        <img src="~/assetsHome/img/gallery/vehiculo-8.webp"
+                             class="img-fluid"
+                             alt="" />
+                    </a>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>
+<!-- End Gallery Section -->
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Contacto</h2>
+            <p>¿Necesitas ayuda? <span>Contáctanos</span></p>
+        </div>
+
+        <div class="mb-3">
+            <iframe style="border: 0; width: 100%; height: 350px"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+                    frameborder="0"
+                    allowfullscreen></iframe>
+        </div>
+        <!-- Fin de Google Maps -->
+
+        <div class="row gy-4">
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center">
+                    <i class="icon bi bi-map flex-shrink-0"></i>
+                    <div>
+                        <h3>Nuestra Dirección</h3>
+                        <p>A108 Calle de los Vehículos, Ciudad de Autos, CP 535022</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin del elemento de información -->
+
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center">
+                    <i class="icon bi bi-envelope flex-shrink-0"></i>
+                    <div>
+                        <h3>Envíanos un Correo</h3>
+                        <p>contacto@concesionariaejemplo.com</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin del elemento de información -->
+
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center">
+                    <i class="icon bi bi-telephone flex-shrink-0"></i>
+                    <div>
+                        <h3>Llámanos</h3>
+                        <p>+1 5589 55488 55</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin del elemento de información -->
+
+            <div class="col-md-6">
+                <div class="info-item d-flex align-items-center">
+                    <i class="icon bi bi-share flex-shrink-0"></i>
+                    <div>
+                        <h3>Horario de Atención</h3>
+                        <div>
+                            <strong>Lun-Sáb:</strong> 11:00 AM - 11:00 PM;
+                            <strong>Domingo:</strong> Cerrado
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin del elemento de información -->
+        </div>
+
+        <form action="forms/contact.php"
+              method="post"
+              role="form"
+              class="php-email-form p-3 p-md-4">
+            <div class="row">
+                <div class="col-xl-6 form-group">
+                    <input type="text"
+                           name="name"
+                           class="form-control"
+                           id="name"
+                           placeholder="Tu Nombre"
+                           required />
+                </div>
+                <div class="col-xl-6 form-group">
+                    <input type="email"
+                           class="form-control"
+                           name="email"
+                           id="email"
+                           placeholder="Tu Correo Electrónico"
+                           required />
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text"
+                       class="form-control"
+                       name="subject"
+                       id="subject"
+                       placeholder="Asunto"
+                       required />
+            </div>
+            <div class="form-group">
+                <textarea class="form-control"
+                          name="message"
+                          rows="5"
+                          placeholder="Mensaje"
+                          required></textarea>
+            </div>
+            <div class="my-3">
+                <div class="loading">Cargando</div>
+                <div class="error-message"></div>
+                <div class="sent-message">
+                    Tu mensaje ha sido enviado. ¡Gracias!
+                </div>
+            </div>
+            <div class="text-center">
+                <button type="submit">Enviar Mensaje</button>
+            </div>
+        </form>
+        <!-- Fin del Formulario de Contacto -->
+    </div>
+</section>
+<!-- End Contact Section -->
