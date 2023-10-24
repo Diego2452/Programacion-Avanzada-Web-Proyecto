@@ -276,7 +276,7 @@
     <aside id="sidebar" class="sidebar">
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">
+                <a class="nav-link" asp-area="" asp-page="/Admin/Index">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
@@ -284,51 +284,149 @@
             <!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-controller="Usuarios" asp-action="Index">
-                    <i class="bi bi-people"></i>
-                    <span>Usuarios</span>
+                <a class="nav-link collapsed" data-bs-target="#usuarios-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-people"></i><span>Mantenimiento Usuarios</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
+                <ul id="usuarios-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Usuarios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-page="/Admin/TipoRoles/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Roles</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Identificaciones/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Tipos de Identificaciones</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-page="/Admin/TipoGeneros/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Tipos de Generos</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">
-                    <i class="bi bi-card-list"></i>
-                    <span>Categorias</span>
+                <a class="nav-link collapsed" data-bs-target="#productos-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-box"></i><span>Mantenimiento Productos</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
+                <ul id="productos-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Productos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Categoria</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Imagenes Productos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Proveedores</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">
-                    <i class="bi bi-truck"></i>
-                    <span>Carros</span>
+                <a class="nav-link collapsed" data-bs-target="#carros-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-car-front-fill"></i><span>Mantenimiento Carros</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
+                <ul id="carros-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Carros</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Marcas de Carros</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Modelos de Carros</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Imagenes Carros</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Tipos de Combustibles</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Tipos de Transmisiones</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">
-                    <i class="bi bi-briefcase"></i>
-                    <span>Proveedores</span>
+                <a class="nav-link collapsed" data-bs-target="#facturas-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-file-earmark-text"></i><span>Mantenimiento Facturas</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
+                <ul id="facturas-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Facturas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Tipo Financiamiento</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Metodos de Compra</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-page="/Admin/Usuario/Index">
+                            <i class="bi bi-circle"></i>
+                            <span>Historial de Compras de Carros</span>
+                        </a>
+                    </li>
+                </ul>
             </li>
-
+        
             <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">
-                    <i class="bi bi-box"></i>
-                    <span>Productos</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">
-                    <i class="bi bi-file-earmark-text"></i>
-                    <span>Facturas</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-controller="Dashboard" asp-action="Index">
-                    <i class="bi bi-clock"></i>
-                    <span>Historial Compras</span>
+                <a class="nav-link" asp-area="" asp-page="/Admin/Index">
+                    <i class="bi bi-cart"></i>
+                    <span>Carrito de Compras</span>
                 </a>
             </li>
 
@@ -392,7 +490,8 @@
                     'pdf',
                     'print'
                 ],
-                "responsive": true, 
+                "responsive": true,
+                "select": true,
                 "searchPanes": true
             });
         });

@@ -1,0 +1,54 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.Identificaciones.DeleteModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Delete";
+}
+
+<div class="pagetitle">
+    <h1>Eliminar Tipo de Identificación</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+            <li class="breadcrumb-item">Tipos de Identificación</li>
+            <li class="breadcrumb-item active">Eliminar</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <h5 class="card-title">¿Estás seguro de eliminar este Tipo de Identificación?</h5>
+                    <div class="tab-content pt-2">
+
+                        <div class="tab-pane fade show active profile-edit pt-3" id="profile-edit">
+
+                            <div class="row mb-3">
+                                <label for="TipoIdentificacion" class="col-md-4 col-lg-3 col-form-label">Tipo de Identificación</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="tipoIdentificacion" type="text" class="form-control" id="TipoIdentificacion" value="@Model.TipoIdentificaciones.TipoIdentificacion" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Additional properties of TipoIdentificaciones go here, if any -->
+
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center">
+                                    <form method="post">
+                                        <input type="hidden" asp-for="TipoIdentificaciones.IdIdentificacion" />
+                                        <input type="submit" value="Eliminar" class="btn btn-danger" />
+                                        <a asp-page="Index" class="btn btn-secondary mx-2">Volver a la Lista</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,103 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.Usuario.DeleteModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Delete";
+}
+
+<div class="pagetitle">
+    <h1>Detalles Usuario</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item">Usuarios</li>
+            <li class="breadcrumb-item active">Eliminar</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <h5 class="card-title">¿Estas seguro de eliminar este Usuario?</h5>
+                    <div class="tab-content pt-2">
+
+                        <div class="tab-pane fade show active profile-edit pt-3" id="profile-edit">
+
+                            <div class="row mb-3">
+                                <label for="TipoIdentificacion" class="col-md-4 col-lg-3 col-form-label">Tipo de Identificación</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="tipoIdentificacion" type="text" class="form-control" id="TipoIdentificacion" value="@Model.Usuarios.TipoIdentificacion.TipoIdentificacion" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="Identificacion" class="col-md-4 col-lg-3 col-form-label">Identificación</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="identificacion" type="text" class="form-control" id="Identificacion" value="@Model.Usuarios.Identificacion" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="nombreCompleto" class="col-md-4 col-lg-3 col-form-label">Nombre Completo</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="nombreCompleto" type="text" class="form-control" id="nombreCompleto" value="@Model.Usuarios.Nombre @Model.Usuarios.Apellido_Paterno @Model.Usuarios.Apellido_Materno" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="Rol" class="col-md-4 col-lg-3 col-form-label">Rol</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="rol" type="text" class="form-control" id="Rol" value="@Model.Usuarios.Rol.NombreRol" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="Email" class="col-md-4 col-lg-3 col-form-label">Correo Electrónico</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="email" type="email" class="form-control" id="Email" value="@Model.Usuarios.Email" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="Telefono" class="col-md-4 col-lg-3 col-form-label">Teléfono</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="telefono" type="text" class="form-control" id="Telefono" value="@Model.Usuarios.Telefono" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="Direccion" class="col-md-4 col-lg-3 col-form-label">Dirección</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <textarea name="direccion" class="form-control" id="Direccion" rows="3" disabled>
+                                        @Model.Usuarios.Direccion
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="Sexo" class="col-md-4 col-lg-3 col-form-label">Sexo</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="sexo" type="text" class="form-control" id="Sexo" value="@Model.Usuarios.Sexo.TipoSexo" disabled>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center">
+                                    <form method="post">
+                                        <input type="hidden" asp-for="Usuarios.IdUsuario" />
+                                        <input type="submit" value="Eliminar" class="btn btn-danger" />
+                                        <a asp-page="Index" class="btn btn-secondary mx-2">Volver a la Lista</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

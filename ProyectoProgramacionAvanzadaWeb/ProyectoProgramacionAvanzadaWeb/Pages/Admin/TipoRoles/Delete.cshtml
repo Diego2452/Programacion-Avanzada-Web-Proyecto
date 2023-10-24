@@ -1,0 +1,55 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoRoles.DeleteModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Delete";
+}
+
+<div class="pagetitle">
+    <h1>Eliminar Rol</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item">Roles</li>
+            <li class="breadcrumb-item active">Eliminar</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <h5 class="card-title">¿Estás seguro de eliminar este Rol?</h5>
+                    <div class="tab-content pt-2">
+
+                        <div class="tab-pane fade show active profile-edit pt-3" id="profile-edit">
+
+                            <!-- You should display the properties of the Roles model here. -->
+                            <div class="row mb-3">
+                                <label for="NombreRol" class="col-md-4 col-lg-3 col-form-label">Nombre de Rol</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="nombreRol" type="text" class="form-control" id="NombreRol" value="@Model.Roles.NombreRol" disabled>
+                                </div>
+                            </div>
+
+                            <!-- Additional properties of the Roles model can be displayed here if needed. -->
+
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center">
+                                    <form method="post">
+                                        <input type="hidden" asp-for="Roles.IdRol" />
+                                        <input type="submit" value="Eliminar" class="btn btn-danger" />
+                                        <a asp-page="Index" class="btn btn-secondary mx-2">Volver a la Lista</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

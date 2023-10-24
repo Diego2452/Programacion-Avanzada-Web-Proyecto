@@ -1,0 +1,50 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoRoles.DetailsModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Details";
+}
+
+<div class="pagetitle">
+    <h1>Detalles de Rol</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item">Roles</li>
+            <li class="breadcrumb-item active">Detalles</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit">Detalles de Rol</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content pt-2">
+                        <div class="tab-pane fade show active profile-edit pt-3" id="profile-edit">
+                            <div class="row mb-3">
+                                <label for="NombreRol" class="col-md-4 col-lg-3 col-form-label">Nombre de Rol</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="nombreRol" type="text" class="form-control" id="NombreRol" value="@Model.Roles.NombreRol" disabled>
+                                </div>
+                            </div>
+                            <!-- Additional properties of the Roles model can be displayed here if needed. -->
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center">
+                                    <a asp-page="Index" class="btn btn-secondary mx-2">Volver a la Lista</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

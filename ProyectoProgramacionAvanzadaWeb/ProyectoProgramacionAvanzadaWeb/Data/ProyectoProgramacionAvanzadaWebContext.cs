@@ -15,5 +15,13 @@ namespace ProyectoProgramacionAvanzadaWeb.Data
         }
 
         public DbSet<ProyectoProgramacionAvanzadaWeb.Models.Usuarios> Usuarios { get; set; } = default!;
+
+        public DbSet<ProyectoProgramacionAvanzadaWeb.Models.TipoIdentificaciones>? TipoIdentificaciones { get; set; }
+
+        public DbSet<ProyectoProgramacionAvanzadaWeb.Models.Roles>? Roles { get; set; }
+
+        public DbSet<ProyectoProgramacionAvanzadaWeb.Models.Sexo>? Sexo { get; set; }
+
+        public DbSet<ProyectoProgramacionAvanzadaWeb.Models.LoginRequest>? LoginRequest { get; set; }
     }
 }
