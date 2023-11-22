@@ -1,0 +1,96 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.Carro.EditModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Carros</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Carros.IdCarro" />
+            <div class="form-group">
+                <label asp-for="Carros.IdModelo" class="control-label"></label>
+                <select asp-for="Carros.IdModelo" class="form-control" asp-items="ViewBag.IdModelo"></select>
+                <span asp-validation-for="Carros.IdModelo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Carros.Estilo" class="control-label"></label>
+                <input asp-for="Carros.Estilo" class="form-control" />
+                <span asp-validation-for="Carros.Estilo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Carros.Anio" class="control-label"></label>
+                <input asp-for="Carros.Anio" class="form-control" />
+                <span asp-validation-for="Carros.Anio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Carros.IdCombustible" class="control-label"></label>
+                <select asp-for="Carros.IdCombustible" class="form-control" asp-items="ViewBag.IdCombustible"></select>
+                <span asp-validation-for="Carros.IdCombustible" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Carros.IdTransmision" class="control-label"></label>
+                <select asp-for="Carros.IdTransmision" class="form-control" asp-items="ViewBag.IdTransmision"></select>
+                <span asp-validation-for="Carros.IdTransmision" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Carros.NumeroPuertas" class="control-label"></label>
+                <input asp-for="Carros.NumeroPuertas" class="form-control" />
+                <span asp-validation-for="Carros.NumeroPuertas" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Carros.ColorExterior" class="control-label"></label>
+                <input asp-for="Carros.ColorExterior" class="form-control" />
+                <span asp-validation-for="Carros.ColorExterior" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Carros.ColorInterior" class="control-label"></label>
+                <input asp-for="Carros.ColorInterior" class="form-control" />
+                <span asp-validation-for="Carros.ColorInterior" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Carros.FechaIngreso" class="control-label"></label>
+                <input asp-for="Carros.FechaIngreso" class="form-control" />
+                <span asp-validation-for="Carros.FechaIngreso" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Carros.Placa" class="control-label"></label>
+                <input asp-for="Carros.Placa" class="form-control" />
+                <span asp-validation-for="Carros.Placa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Carros.IdFinanciamiento" class="control-label"></label>
+                <select asp-for="Carros.IdFinanciamiento" class="form-control" asp-items="ViewBag.IdFinanciamiento"></select>
+                <span asp-validation-for="Carros.IdFinanciamiento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Carros.Apartado" class="control-label"></label>
+                <input asp-for="Carros.Apartado" class="form-control" />
+                <span asp-validation-for="Carros.Apartado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Carros.Precio" class="control-label"></label>
+                <input asp-for="Carros.Precio" class="form-control" />
+                <span asp-validation-for="Carros.Precio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -41,11 +41,18 @@
                             </div>
                             <div class="card-body">
                                 <form method="post" class="text-start">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                                     <div class="input-group input-group-outline my-3">
                                         <input asp-for="LoginRequest.Email" class="form-control" placeholder="Correo Electrónico" />
+                                        <!--
+                                        <span asp-validation-for="LoginRequest.Email"></span>
+                                        -->
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
                                         <input asp-for="LoginRequest.Contrasenna" class="form-control" type="password" placeholder="Contraseña" />
+                                        <!--
+                                        <span asp-validation-for="LoginRequest.Contrasenna"></span>
+                                        -->
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">Iniciar Sesión</button>

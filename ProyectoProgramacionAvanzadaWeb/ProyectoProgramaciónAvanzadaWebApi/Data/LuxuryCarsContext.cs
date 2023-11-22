@@ -1,12 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProyectoProgramacionAvanzadaWebApi.Models;
-using System.Collections.Generic;
 
 namespace ProyectoProgramacionAvanzadaWebApi.Data
 {
-    public class LuxuryCarsContext: DbContext
+    public class LuxuryCarsContext : DbContext
     {
-        public LuxuryCarsContext(DbContextOptions<LuxuryCarsContext> options): base(options)
+        public LuxuryCarsContext(DbContextOptions<LuxuryCarsContext> options) : base(options)
         {
         }
         public DbSet<CarritoDeCompras> CarritoDeCompras { get; set; }
@@ -23,7 +22,7 @@ namespace ProyectoProgramacionAvanzadaWebApi.Data
         public DbSet<Productos> Productos { get; set; }
         public DbSet<Proveedores> Proveedores { get; set; }
         public DbSet<Roles> Roles { get; set; }
-        public DbSet<Sexo> Sexo { get; set; }
+        public DbSet<Genero> Genero { get; set; }
         public DbSet<TipoIdentificaciones> TipoIdentificaciones { get; set; }
         public DbSet<TipoCombustibles> TipoCombustibles { get; set; }
         public DbSet<TipoFinanciamientos> TipoFinanciamientos { get; set; }

@@ -48,20 +48,20 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model.Sexos)
+                                @foreach (var item in Model.Generos)
                                 {
                                     <tr>
-                                        <td>@item.IdSexo</td>
-                                        <td>@Html.DisplayFor(modelItem => item.TipoSexo)</td>
+                                        <td>@item.IdGenero</td>
+                                        <td>@Html.DisplayFor(modelItem => item.TipoGenero)</td>
                                         <td>
                                             <div class="btn-group">
-                                                <a asp-page="./Edit" asp-route-id="@item.IdSexo" class="btn btn-primary">
+                                                <a asp-page="./Edit" asp-route-id="@item.IdGenero" class="btn btn-primary">
                                                     <i class="bi bi-pencil"></i>
                                                 </a>
-                                                <a asp-page="./Details" asp-route-id="@item.IdSexo" class="btn btn-info">
+                                                <a asp-page="./Details" asp-route-id="@item.IdGenero" class="btn btn-info">
                                                     <i class="bi bi-info-circle"></i>
                                                 </a>
-                                                <a asp-page="./Delete" asp-route-id="@item.IdSexo" class="btn btn-danger">
+                                                <a asp-page="./Delete" asp-route-id="@item.IdGenero" class="btn btn-danger">
                                                     <i class="bi bi-trash"></i>
                                                 </a>
                                             </div>

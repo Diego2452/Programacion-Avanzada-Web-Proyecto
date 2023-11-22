@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using ProyectoProgramacionAvanzadaWeb.Data;
 using ProyectoProgramacionAvanzadaWeb.Services;
-using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +10,10 @@ builder.Services.AddDbContext<ProyectoProgramacionAvanzadaWebContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ProyectoProgramacionAvanzadaWebContext") ?? throw new InvalidOperationException("Connection string 'ProyectoProgramacionAvanzadaWebContext' not found.")));
 
 //builder.Services.AddScoped<ApiServiceUsuario>();
+builder.Services.AddScoped<GenerosApiService>();
+builder.Services.AddScoped<RolesApiService>();
+builder.Services.AddScoped<TipoIdentificacionesApiService>();
+builder.Services.AddScoped<UsuarioApiService>();
 
 var app = builder.Build();
 

@@ -1,24 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using ProyectoProgramacionAvanzadaWeb.Data;
 using ProyectoProgramacionAvanzadaWeb.Models;
+using ProyectoProgramacionAvanzadaWeb.Services;
 
 namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Usuario
 {
     public class DetailsModel : PageModel
     {
-        private readonly IConfiguration _configuration;
+        private readonly UsuarioApiService _usuarioApiService;
         public string Message { get; set; }
-
-        public DetailsModel(IConfiguration configuration)
+        public DetailsModel(UsuarioApiService usuarioApiService)
         {
-            _configuration = configuration;
+            _usuarioApiService = usuarioApiService;
         }
 
         public Usuarios Usuarios { get; set; } = new Usuarios();
@@ -31,38 +25,15 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Usuario
                 return Page();
             }
 
-            string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = $"Usuarios/{id}";
+            var (usuario, message) = await _usuarioApiService.ObtenerDetallesUsuarioAsync(id.Value);
 
-            using (HttpClient client = new HttpClient())
+            if (usuario != null)
             {
-                try
-                {
-                    HttpResponseMessage response = await client.GetAsync($"{baseUrl}{apiEndpoint}");
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string jsonContent = await response.Content.ReadAsStringAsync();
-                        Usuarios = JsonConvert.DeserializeObject<Usuarios>(jsonContent);
-
-                        if (Usuarios == null)
-                        {
-                            Message = "Usuario no encontrado en la API.";
-                        }
-                        else
-                        {
-                            Message = "Usuario cargado exitosamente desde la API.";
-                        }
-                    }
-                    else
-                    {
-                        Message = "Error al obtener el usuario desde la API. Código de estado: " + (int)response.StatusCode;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Message = "Error al conectarse al API: " + ex.Message;
-                }
+                Usuarios = usuario;
+            }
+            else
+            {
+                Message = message ?? "Error al obtener el usuario desde la API.";
             }
 
             return Page();

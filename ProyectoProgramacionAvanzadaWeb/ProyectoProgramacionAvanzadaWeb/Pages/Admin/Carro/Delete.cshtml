@@ -1,0 +1,101 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.Carro.DeleteModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Carros</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carros.Estilo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carros.Estilo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carros.Anio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carros.Anio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carros.NumeroPuertas)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carros.NumeroPuertas)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carros.ColorExterior)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carros.ColorExterior)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carros.ColorInterior)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carros.ColorInterior)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carros.FechaIngreso)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carros.FechaIngreso)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carros.Placa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carros.Placa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carros.Apartado)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carros.Apartado)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carros.Precio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carros.Precio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carros.ModeloCarro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carros.ModeloCarro.Modelo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carros.Combustible)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carros.Combustible.TipoCombustible)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carros.Transmision)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carros.Transmision.TipoTransmision)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carros.Financiamiento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carros.Financiamiento.TipoFinanciamiento)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Carros.IdCarro" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProyectoProgramacionAvanzadaWeb.Models
 {
@@ -75,5 +75,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Models
 
         [ForeignKey("IdFinanciamiento")]
         public TipoFinanciamientos? Financiamiento { get; set; }
+        [ForeignKey("IdCarro")]
+        public ICollection<CarrosImagenes>? Imagenes { get; set; }
     }
 }

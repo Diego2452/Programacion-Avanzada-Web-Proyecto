@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProyectoProgramacionAvanzadaWebApi.Models
 {
@@ -15,9 +15,9 @@ namespace ProyectoProgramacionAvanzadaWebApi.Models
         [Required(ErrorMessage = "El campo Ruta de Imagen es obligatorio.")]
         [StringLength(255, ErrorMessage = "El campo Ruta de Imagen debe tener como máximo 255 caracteres.")]
         [Display(Name = "Ruta de Imagen")]
-        public string ImagenPath { get; set; }
-
-        [ForeignKey("IdProducto")]
-        public Productos Producto { get; set; }
+        public string ImagenPath
+        {
+            get; set;
+        }
     }
 }

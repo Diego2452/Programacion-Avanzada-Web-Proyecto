@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using ProyectoProgramacionAvanzadaWeb.Data;
 using ProyectoProgramacionAvanzadaWeb.Models;
+using ProyectoProgramacionAvanzadaWeb.Services;
+using System.Net;
+using System.Text;
 
 namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Usuario
 {
     public class EditModel : PageModel
     {
         private readonly IConfiguration _configuration;
+        private readonly UsuarioApiService _usuarioApiService;
         public string Message { get; set; }
 
-        public EditModel(IConfiguration configuration)
+        public EditModel(IConfiguration configuration, UsuarioApiService usuarioApiService)
         {
             _configuration = configuration;
+            _usuarioApiService = usuarioApiService;
         }
 
         [BindProperty]
@@ -35,38 +32,16 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Usuario
                 return Page();
             }
 
-            string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = $"Usuarios/{id}";
+            var (usuario, message) = await _usuarioApiService.ObtenerDetallesUsuarioAsync(id.Value);
 
-            using (HttpClient client = new HttpClient())
+            if (usuario != null)
             {
-                try
-                {
-                    HttpResponseMessage response = await client.GetAsync($"{baseUrl}{apiEndpoint}");
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string jsonContent = await response.Content.ReadAsStringAsync();
-                        Usuarios = JsonConvert.DeserializeObject<Usuarios>(jsonContent);
-
-                        if (Usuarios == null)
-                        {
-                            Message = "Usuario no encontrado en la API.";
-                        }
-                        else
-                        {
-                            await SelectLists();
-                        }
-                    }
-                    else
-                    {
-                        Message = "Error al obtener el usuario desde la API. Código de estado: " + (int)response.StatusCode;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Message = "Error al conectarse al API: " + ex.Message;
-                }
+                Usuarios = usuario;
+                await SelectLists();
+            }
+            else
+            {
+                Message = message ?? "Error al obtener el usuario desde la API.";
             }
 
             return Page();
@@ -76,61 +51,29 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Usuario
         {
             if (!ModelState.IsValid)
             {
+                await SelectLists();
                 return Page();
             }
 
-            string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = $"usuarios/{Usuarios.IdUsuario}";
+            var (success, message) = await _usuarioApiService.EditarUsuarioAsync(Usuarios);
 
-            using (HttpClient client = new HttpClient())
+            if (success)
             {
-                try
-                {
-                    string jsonContent = JsonConvert.SerializeObject(Usuarios);
-                    var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-
-                    HttpResponseMessage response = await client.PutAsync($"{baseUrl}{apiEndpoint}", httpContent);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        TempData["SuccessMessage"] = "Operación exitosa: El usuario ha sido modificado.";
-                        return RedirectToPage("./Edit", new { id = Usuarios.IdUsuario });
-                        //return RedirectToPage("./Edit");
-                    }
-                    if (response.StatusCode == HttpStatusCode.BadRequest)
-                    {
-                        string responseContent = await response.Content.ReadAsStringAsync();
-                        var errorResponse = JsonConvert.DeserializeObject<ErrorResponse>(responseContent);
-
-                        StringBuilder errorMessageBuilder = new StringBuilder();
-                        foreach (var error in errorResponse.Errors)
-                        {
-                            errorMessageBuilder.AppendLine($"{error.Key}: {error.Value.Errors[0].ErrorMessage}");
-                        }
-
-                        Message = errorMessageBuilder.ToString();
-                        await SelectLists();
-                    }
-                    else
-                    {
-                        Message = "Error al actualizar el usuario. Código de estado: " + (int)response.StatusCode;
-                        await SelectLists();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Message = "Error interno del servidor al actualizar el usuario: " + ex.Message;
-                    await SelectLists();
-                }
+                TempData["SuccessMessage"] = message;
+                return RedirectToPage("./Edit", new { id = Usuarios.IdUsuario });
             }
-
-            return Page();
+            else
+            {
+                Message = message ?? "Error al actualizar el usuario.";
+                await SelectLists();
+                return Page();
+            }
         }
 
         private async Task SelectLists()
         {
             ViewData["IdTipoIdentificacion"] = new SelectList(await GetTipoIdentificacionesAsync(), "IdIdentificacion", "TipoIdentificacion");
-            ViewData["IdSexo"] = new SelectList(await GetSexosAsync(), "IdSexo", "TipoSexo");
+            ViewData["IdGenero"] = new SelectList(await GetGenerosAsync(), "IdGenero", "TipoGenero");
             ViewData["IdRol"] = new SelectList(await GetRolesAsync(), "IdRol", "NombreRol");
         }
         public async Task<List<TipoIdentificaciones>> GetTipoIdentificacionesAsync()
@@ -151,10 +94,10 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Usuario
                 return null;
             }
         }
-        public async Task<List<Sexo>> GetSexosAsync()
+        public async Task<List<Genero>> GetGenerosAsync()
         {
             string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = "sexos";
+            string apiEndpoint = "Generos";
 
             using (HttpClient client = new HttpClient())
             {
@@ -163,8 +106,8 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Usuario
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    List<Sexo> sexos = JsonConvert.DeserializeObject<List<Sexo>>(content);
-                    return sexos;
+                    List<Genero> Generos = JsonConvert.DeserializeObject<List<Genero>>(content);
+                    return Generos;
                 }
                 return null;
             }

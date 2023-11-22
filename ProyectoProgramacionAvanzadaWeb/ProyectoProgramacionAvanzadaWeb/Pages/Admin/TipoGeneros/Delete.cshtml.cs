@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using ProyectoProgramacionAvanzadaWeb.Data;
 using ProyectoProgramacionAvanzadaWeb.Models;
 
 namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoGeneros
@@ -21,7 +15,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoGeneros
         }
 
         [BindProperty]
-      public Sexo Sexo { get; set; } = new Sexo();
+        public Genero Genero { get; set; } = new Genero();
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -32,7 +26,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoGeneros
             }
 
             string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = $"sexos/{id}";
+            string apiEndpoint = $"Generos/{id}";
 
             using (HttpClient client = new HttpClient())
             {
@@ -43,9 +37,9 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoGeneros
                     if (response.IsSuccessStatusCode)
                     {
                         string jsonContent = await response.Content.ReadAsStringAsync();
-                        Sexo = JsonConvert.DeserializeObject<Sexo>(jsonContent);
+                        Genero = JsonConvert.DeserializeObject<Genero>(jsonContent);
 
-                        if (Sexo == null)
+                        if (Genero == null)
                         {
                             Message = "Tipo de Genero no encontrado en la API.";
                         }
@@ -75,7 +69,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoGeneros
             }
 
             string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = $"sexos/{id}";
+            string apiEndpoint = $"Generos/{id}";
 
             using (HttpClient client = new HttpClient())
             {

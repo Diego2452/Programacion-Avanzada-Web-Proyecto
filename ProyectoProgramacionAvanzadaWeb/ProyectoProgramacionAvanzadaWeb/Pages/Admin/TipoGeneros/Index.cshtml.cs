@@ -1,60 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
-using ProyectoProgramacionAvanzadaWeb.Data;
 using ProyectoProgramacionAvanzadaWeb.Models;
+using ProyectoProgramacionAvanzadaWeb.Services;
+using System.Net;
 
 namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoGeneros
 {
     public class IndexModel : PageModel
     {
-        private readonly IConfiguration _configuration;
+        private readonly GenerosApiService _generosApiService;
+
         public string Message { get; set; }
 
-        public IndexModel(IConfiguration configuration)
+        public IndexModel(GenerosApiService generosApiService)
         {
-            _configuration = configuration;
+            _generosApiService = generosApiService;
         }
-
-        public IList<Sexo> Sexos { get;set; } = new List<Sexo>();
+        public IList<Genero> Generos { get; set; } = new List<Genero>();
 
         public async Task OnGetAsync()
         {
-            string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = "sexos";
+            var (generos, errorMessage) = await _generosApiService.ObtenerGenerosAsync();
 
-            using (HttpClient client = new HttpClient())
+            if (generos != null)
             {
-                try
-                {
-                    HttpResponseMessage response = await client.GetAsync($"{baseUrl}{apiEndpoint}");
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string jsonContent = await response.Content.ReadAsStringAsync();
-                        List<Sexo> sexos = JsonConvert.DeserializeObject<List<Sexo>>(jsonContent);
-
-                        Sexos = sexos;
-                    }
-                    else if (response.StatusCode == HttpStatusCode.NotFound)
-                    {
-                        Message = "No se encontraron Tipos de Generos en la base de datos.";
-                    }
-                    else
-                    {
-                        Message = "Error al obtener Tipos de Generos desde la API.";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Message = $"Error interno del servidor: {ex.Message}";
-                }
+                Generos = generos;
+            }
+            else
+            {
+                Message = errorMessage ?? "Error al obtener generos desde la API.";
             }
         }
     }

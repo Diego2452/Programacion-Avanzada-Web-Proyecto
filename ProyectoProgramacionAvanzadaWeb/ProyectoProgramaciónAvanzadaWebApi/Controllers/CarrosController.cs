@@ -2,10 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProyectoProgramacionAvanzadaWebApi.Data;
 using ProyectoProgramacionAvanzadaWebApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProyectoProgramacionAvanzadaWebApi.Controllers
 {
@@ -30,6 +26,7 @@ namespace ProyectoProgramacionAvanzadaWebApi.Controllers
                                                   .Include(c => c.Combustible)
                                                   .Include(c => c.Transmision)
                                                   .Include(c => c.Financiamiento)
+                                                  .Include(p => p.Imagenes)
                                                   .ToListAsync();
 
                 if (carros == null || carros.Count == 0)
@@ -55,6 +52,7 @@ namespace ProyectoProgramacionAvanzadaWebApi.Controllers
                                                 .Include(c => c.Combustible)
                                                 .Include(c => c.Transmision)
                                                 .Include(c => c.Financiamiento)
+                                                .Include(p => p.Imagenes)
                                                 .FirstOrDefaultAsync(c => c.IdCarro == id);
 
                 if (carro == null)

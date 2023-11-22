@@ -16,6 +16,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\antho\Documents\GitHub\Programacion-Avanzada-Web-Proyecto\ProyectoProgramacionAvanzadaWeb\ProyectoProgramacionAvanzadaWeb
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Carro/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2Fycm9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Carro/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2Fycm9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Carro/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2Fycm9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Carro/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2Fycm9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Carro/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2Fycm9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Identificaciones/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSWRlbnRpZmljYWNpb25lc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

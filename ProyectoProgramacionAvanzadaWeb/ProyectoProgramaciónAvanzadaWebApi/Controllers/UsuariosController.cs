@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProyectoProgramacionAvanzadaWebApi.Data;
 using ProyectoProgramacionAvanzadaWebApi.Models;
@@ -27,7 +22,7 @@ namespace ProyectoProgramacionAvanzadaWebApi.Controllers
         {
             try
             {
-                var usuarios = await _context.Usuarios.Include(u => u.Sexo)
+                var usuarios = await _context.Usuarios.Include(u => u.Genero)
                                                       .Include(u => u.TipoIdentificacion)
                                                       .Include(u => u.Rol)
                                                       .ToListAsync();
@@ -51,7 +46,7 @@ namespace ProyectoProgramacionAvanzadaWebApi.Controllers
         {
             try
             {
-                var usuario = await _context.Usuarios.Include(u => u.Sexo)
+                var usuario = await _context.Usuarios.Include(u => u.Genero)
                                                     .Include(u => u.TipoIdentificacion)
                                                     .Include(u => u.Rol)
                                                     .FirstOrDefaultAsync(u => u.IdUsuario == id);

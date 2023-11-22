@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using ProyectoProgramacionAvanzadaWeb.Data;
 using ProyectoProgramacionAvanzadaWeb.Models;
+using ProyectoProgramacionAvanzadaWeb.Services;
 
 namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Usuario
 {
     public class DeleteModel : PageModel
     {
-        private readonly IConfiguration _configuration;
+        private readonly UsuarioApiService _usuarioApiService;
         public string Message { get; set; }
-        public DeleteModel(IConfiguration configuration)
+        public DeleteModel(UsuarioApiService usuarioApiService)
         {
-            _configuration = configuration;
+            _usuarioApiService = usuarioApiService;
         }
 
         [BindProperty]
@@ -31,38 +26,15 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Usuario
                 return Page();
             }
 
-            string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = $"Usuarios/{id}";
+            var (usuario, message) = await _usuarioApiService.ObtenerDetallesUsuarioAsync(id.Value);
 
-            using (HttpClient client = new HttpClient())
+            if (usuario != null)
             {
-                try
-                {
-                    HttpResponseMessage response = await client.GetAsync($"{baseUrl}{apiEndpoint}");
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string jsonContent = await response.Content.ReadAsStringAsync();
-                        Usuarios = JsonConvert.DeserializeObject<Usuarios>(jsonContent);
-
-                        if (Usuarios == null)
-                        {
-                            Message = "Usuario no encontrado en la API.";
-                        }
-                        else
-                        {
-                            Message = "Usuario cargado exitosamente desde la API.";
-                        }
-                    }
-                    else
-                    {
-                        Message = "Error al obtener el usuario desde la API. Código de estado: " + (int)response.StatusCode;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Message = "Error al conectarse al API: " + ex.Message;
-                }
+                Usuarios = usuario;
+            }
+            else
+            {
+                Message = message ?? "Error al obtener el usuario desde la API.";
             }
 
             return Page();
@@ -72,35 +44,22 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Usuario
         {
             if (id == null)
             {
-                return NotFound();
+                Message = "ID no proporcionado.";
+                return Page();
             }
 
-            string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = $"usuarios/{id}";
+            var (success, message) = await _usuarioApiService.EliminarUsuarioAsync(id.Value);
 
-            using (HttpClient client = new HttpClient())
+            if (success)
             {
-                try
-                {
-                    HttpResponseMessage response = await client.DeleteAsync($"{baseUrl}{apiEndpoint}");
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        Message = "Usuario borrado con éxito.";
-                        return RedirectToPage("./Index");
-                    }
-                    else
-                    {
-                        Message = "Error al borrar el usuario. Código de estado: " + (int)response.StatusCode;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Message = "Error interno del servidor al borrar el usuario: " + ex.Message;
-                }
+                TempData["SuccessMessage"] = message;
+                return RedirectToPage("./Index");
             }
-
-            return Page();
+            else
+            {
+                Message = message ?? "Error al obtener el usuario desde la API.";
+                return Page();
+            }
         }
     }
 }

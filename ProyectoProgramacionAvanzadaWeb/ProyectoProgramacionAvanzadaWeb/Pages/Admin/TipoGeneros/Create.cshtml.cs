@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
+using ProyectoProgramacionAvanzadaWeb.Models;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Newtonsoft.Json;
-using ProyectoProgramacionAvanzadaWeb.Data;
-using ProyectoProgramacionAvanzadaWeb.Models;
 
 namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoGeneros
 {
@@ -29,20 +23,20 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoGeneros
         }
 
         [BindProperty]
-        public Sexo Sexo { get; set; } = new Sexo();
-        
+        public Genero Genero { get; set; } = new Genero();
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
             string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = "sexos";
+            string apiEndpoint = "Generos";
 
             using (HttpClient client = new HttpClient())
             {
                 try
                 {
-                    string jsonContent = JsonConvert.SerializeObject(Sexo);
+                    string jsonContent = JsonConvert.SerializeObject(Genero);
                     var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
                     HttpResponseMessage response = await client.PostAsync($"{baseUrl}{apiEndpoint}", httpContent);

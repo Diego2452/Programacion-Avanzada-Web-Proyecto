@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProyectoProgramacionAvanzadaWeb.Models
 {
@@ -16,8 +16,5 @@ namespace ProyectoProgramacionAvanzadaWeb.Models
         [StringLength(255, ErrorMessage = "El campo Ruta de Imagen debe tener como máximo 255 caracteres.")]
         [Display(Name = "Ruta de Imagen")]
         public string ImagenPath { get; set; }
-
-        [ForeignKey("IdProducto")]
-        public Productos Producto { get; set; }
     }
 }

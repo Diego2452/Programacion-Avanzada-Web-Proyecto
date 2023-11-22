@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
+using ProyectoProgramacionAvanzadaWeb.Models;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Newtonsoft.Json;
-using NuGet.Protocol.Plugins;
-using ProyectoProgramacionAvanzadaWeb.Data;
-using ProyectoProgramacionAvanzadaWeb.Models;
 
 namespace ProyectoProgramacionAvanzadaWeb.Pages.Auth.Login
 {
@@ -49,7 +42,6 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Auth.Login
             {
                 try
                 {
-                    // Serializa el objeto LoginRequest
                     string jsonContent = JsonConvert.SerializeObject(LoginRequest);
                     var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
@@ -79,7 +71,6 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Auth.Login
                     }
                     else
                     {
-                        // Trata otros casos de error de manera genérica
                         Message = "Error al iniciar sesión. Código de estado: " + (int)response.StatusCode;
                     }
                 }

@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProyectoProgramacionAvanzadaWebApi.Models
 {
@@ -45,5 +45,7 @@ namespace ProyectoProgramacionAvanzadaWebApi.Models
 
         [ForeignKey("IdCategoria")]
         public Categoria Categoria { get; set; }
+        [ForeignKey("IdProducto")]
+        public ICollection<ImagenesProductos>? Imagenes { get; set; }
     }
 }
