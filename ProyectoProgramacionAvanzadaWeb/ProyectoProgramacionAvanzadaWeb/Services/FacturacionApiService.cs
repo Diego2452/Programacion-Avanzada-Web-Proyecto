@@ -18,7 +18,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Services
 
         public async Task<(List<Facturacion> Facturas, string Message)> ObtenerFacturasAsync()
         {
-            string apiEndpoint = "Facturacion";
+            string apiEndpoint = "Facturaciones";
 
             using (HttpClient client = new HttpClient())
             {
@@ -51,7 +51,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Services
 
         public async Task<(bool Success, string Message)> CrearFacturaAsync(Facturacion factura)
         {
-            string apiEndpoint = "Facturacion";
+            string apiEndpoint = "Facturaciones";
 
             using (HttpClient client = new HttpClient())
             {
@@ -94,7 +94,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Services
 
         public async Task<(bool Success, string Message)> EliminarFacturaAsync(int id)
         {
-            string apiEndpoint = $"Facturacion/{id}";
+            string apiEndpoint = $"Facturaciones/{id}";
 
             using (HttpClient client = new HttpClient())
             {
@@ -120,7 +120,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Services
 
         public async Task<(Facturacion Factura, string Message)> ObtenerDetallesFacturaAsync(int id)
         {
-            string apiEndpoint = $"Facturacion/{id}";
+            string apiEndpoint = $"Facturaciones/{id}";
 
             using (HttpClient client = new HttpClient())
             {
@@ -156,7 +156,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Services
 
         public async Task<(bool Success, string Message)> EditarFacturaAsync(Facturacion factura)
         {
-            string apiEndpoint = $"Facturacion/{factura.IdFactura}";
+            string apiEndpoint = $"Facturaciones/{factura.IdFactura}";
 
             using (HttpClient client = new HttpClient())
             {

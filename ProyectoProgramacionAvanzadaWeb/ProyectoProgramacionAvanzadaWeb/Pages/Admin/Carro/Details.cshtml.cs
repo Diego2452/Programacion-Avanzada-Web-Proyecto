@@ -8,17 +8,23 @@ using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using ProyectoProgramacionAvanzadaWeb.Data;
 using ProyectoProgramacionAvanzadaWeb.Models;
+using ProyectoProgramacionAvanzadaWeb.Services;
 
 namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Carro
 {
     public class DetailsModel : PageModel
     {
-        private readonly IConfiguration _configuration;
+        private readonly CarrosApiService _carroApiService;
+        private readonly CarrosImagenesApiService _carroImagenesApiService;
+
         public string Message { get; set; }
 
-        public DetailsModel(IConfiguration configuration)
+        public DetailsModel(
+            CarrosApiService carroApiService,
+            CarrosImagenesApiService carroImagenesApiService)
         {
-            _configuration = configuration;
+            _carroApiService = carroApiService;
+            _carroImagenesApiService = carroImagenesApiService;
         }
 
         public Carros Carros { get; set; } = new Carros(); 
@@ -31,42 +37,52 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Carro
                 return Page();
             }
 
-            string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = $"Carros/{id}";
+            var (carro, message) = await _carroApiService.ObtenerDetallesCarroAsync(id.Value);
 
-            using (HttpClient client = new HttpClient())
+            if (carro != null)
             {
-                try
-                {
-                    HttpResponseMessage response = await client.GetAsync($"{baseUrl}{apiEndpoint}");
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string jsonContent = await response.Content.ReadAsStringAsync();
-                        Carros = JsonConvert.DeserializeObject<Carros>(jsonContent);
-
-                        if (Carros == null)
-                        {
-                            Message = "Carro no encontrado en la API.";
-                        }
-                        else
-                        {
-                            Message = "Carro cargado exitosamente desde la API.";
-                        }
-                    }
-                    else
-                    {
-                        Message = "Error al obtener el Carro desde la API. Código de estado: " + (int)response.StatusCode;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Message = "Error al conectarse al API: " + ex.Message;
-                }
+                Carros = carro;
+            }
+            else
+            {
+                Message = message ?? "Error al obtener el carro desde la API.";
             }
 
             return Page();
+        }
 
+        public async Task<IActionResult> OnPostAsync(int idImagen, int idCarro)
+        {
+            var (success, message) = await _carroImagenesApiService.EliminarCarroImagenAsync(idImagen);
+
+            if (success)
+            {
+                Message = message;
+            }
+            else
+            {
+                Message = $"Error al eliminar la imagen del carro: {message}";
+            }
+
+            return RedirectToPage(new { id = idCarro });
+        }
+
+        public async Task<IActionResult> OnPostAgregarImagenAsync(string rutaImagen, int idCarro)
+        {
+            var imagen = new CarrosImagenes { ImagenPath = rutaImagen, IdCarro = idCarro };
+
+            var (success, message) = await _carroImagenesApiService.CrearCarroImagenAsync(imagen);
+
+            if (success)
+            {
+                Message = message;
+            }
+            else
+            {
+                Message = $"Error al crear la imagen del carro: {message}";
+            }
+
+            return RedirectToPage(new { id = idCarro });
         }
     }
 }

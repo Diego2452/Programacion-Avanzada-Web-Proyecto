@@ -1,0 +1,59 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoFinanciamiento.DeleteModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Delete";
+}
+
+<div class="pagetitle">
+    <h1>Eliminar Tipo de Financiamiento</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item">Financiamientos</li>
+            <li class="breadcrumb-item active">Eliminar</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <h5 class="card-title">¿Estás seguro de eliminar este Tipo de Financiamiento?</h5>
+                    <div class="tab-content pt-2">
+
+                        <div class="tab-pane fade show active profile-edit pt-3" id="profile-edit">
+
+                            <div class="row mb-3">
+                                <label for="IdFinanciamiento" class="col-md-4 col-lg-3 col-form-label">ID de Financiamiento</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="idFinanciamiento" type="text" class="form-control" id="IdFinanciamiento" value="@Model.TipoFinanciamientos.IdFinanciamiento" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="TipoFinanciamiento" class="col-md-4 col-lg-3 col-form-label">Tipo de Financiamiento</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="tipoFinanciamiento" type="text" class="form-control" id="TipoFinanciamiento" value="@Model.TipoFinanciamientos.TipoFinanciamiento" disabled>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center">
+                                    <form method="post">
+                                        <input type="hidden" asp-for="TipoFinanciamientos.IdFinanciamiento" />
+                                        <input type="submit" value="Eliminar" class="btn btn-danger" />
+                                        <a asp-page="Index" class="btn btn-secondary mx-2">Volver a la Lista</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

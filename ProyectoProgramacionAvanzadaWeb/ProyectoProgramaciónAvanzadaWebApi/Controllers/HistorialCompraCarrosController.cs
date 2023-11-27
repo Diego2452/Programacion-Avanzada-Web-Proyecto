@@ -24,7 +24,7 @@ namespace ProyectoProgramacionAvanzadaWebApi.Controllers
             {
                 var historiales = await _context.HistorialCompraCarro
                     .Include(h => h.Usuario)
-                    .Include(h => h.Carrito)
+                    .Include(h => h.Carro)
                     .Include(h => h.Estado)
                     .ToListAsync();
 
@@ -49,7 +49,7 @@ namespace ProyectoProgramacionAvanzadaWebApi.Controllers
             {
                 var historial = await _context.HistorialCompraCarro
                     .Include(h => h.Usuario)
-                    .Include(h => h.Carrito)
+                    .Include(h => h.Carro)
                     .Include(h => h.Estado)
                     .FirstOrDefaultAsync(h => h.IdHistorialCompraCarro == id);
 

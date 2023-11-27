@@ -1,0 +1,182 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.Producto.DetailsModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Details";
+}
+
+<div class="pagetitle">
+    <h1>Detalles de Producto</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item">Productos</li>
+            <li class="breadcrumb-item active">Detalles</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit">Detalles de Producto</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content pt-2">
+                        <div class="tab-pane fade show active profile-edit pt-3" id="profile-edit">
+                            <div class="row mb-3">
+                                <label for="IdProducto" class="col-md-4 col-lg-3 col-form-label">ID de Producto</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="idProducto" type="text" class="form-control" id="IdProducto" value="@Model.Productos.IdProducto" disabled>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="IdCategoria" class="col-md-4 col-lg-3 col-form-label">ID de Categoría</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="idCategoria" type="text" class="form-control" id="IdCategoria" value="@Model.Productos.Categoria.IdCategoria" disabled>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="IdProveedor" class="col-md-4 col-lg-3 col-form-label">ID de Proveedor</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="idProveedor" type="text" class="form-control" id="IdProveedor" value="@Model.Productos.Proveedor.IdProveedor" disabled>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="NombreProducto" class="col-md-4 col-lg-3 col-form-label">Nombre del Producto</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="nombreProducto" type="text" class="form-control" id="NombreProducto" value="@Model.Productos.NombreProducto" disabled>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="Precio" class="col-md-4 col-lg-3 col-form-label">Precio</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="precio" type="text" class="form-control" id="Precio" value="@Model.Productos.Precio" disabled>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="CantidadStock" class="col-md-4 col-lg-3 col-form-label">Cantidad en Stock</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="cantidadStock" type="text" class="form-control" id="CantidadStock" value="@Model.Productos.CantidadStock" disabled>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="Descripcion" class="col-md-4 col-lg-3 col-form-label">Descripción</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <textarea name="descripcion" class="form-control" id="Descripcion" rows="3" disabled>@Model.Productos.Descripcion</textarea>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="Estado" class="col-md-4 col-lg-3 col-form-label">Estado</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="estado" type="text" class="form-control" id="Estado" value="@Model.Productos.Estado" disabled>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center">
+                                    <a asp-page="Index" class="btn btn-secondary mx-2 me-2">Volver a la Lista</a>
+                                    <a class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#agregarImagenModal">Agregar Imagen</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <!-- Imágenes del Productos -->
+            <div class="card">
+                <div class="card-body pt-3">
+                    <h5 class="card-title">Imágenes del Carro</h5>
+                    <!-- Carrusel -->
+                    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach (var (imagen, index) in Model.Productos.Imagenes.Select((value, i) => (value, i)))
+                            {
+                                <div class="carousel-item @(index == 0 ? "active" : "")">
+                                    <img src="@imagen.ImagenPath" class="d-block w-100 img-fluid" style="width: 100%; height: auto;" alt="Imagen del Carro" data-bs-toggle="modal" data-bs-target="#imagenModal">
+                                </div>
+                            }
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="imagenModal" tabindex="-1" aria-labelledby="imagenModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="carouselModal" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach (var (imagen, index) in Model.Productos.Imagenes.Select((value, i) => (value, i)))
+                        {
+                            <div class="carousel-item @(index == 0 ? "active" : "")">
+                                <img src="@imagen.ImagenPath" class="d-block w-100 img-fluid" style="width: 100%; height: auto;" alt="Imagen del Carro">
+                                <h4>Imagen: @(index + 1)</h4>
+                                <div class="overlay text-center mt-2">
+                                    <form method="post" asp-page-handler="EliminarImagen" asp-route-imagenId="@imagen.IdImagen" asp-route-productoId="@Model.Productos.IdProducto">
+                                        <button type="submit" class="btn btn-danger delete-btn">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselModal" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselModal" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="agregarImagenModal" tabindex="-1" aria-labelledby="imagenModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Agregar Imagen</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data" asp-page-handler="AgregarImagen" class="mb-3">
+                            <div class="mb-3">
+                                <label for="rutaImagen" class="form-label">Ruta de la Imagen</label>
+                                <input type="text" class="form-control" id="rutaImagen" name="rutaImagen" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="idProducto" class="form-label">ID del Producto</label>
+                                <input type="number" class="form-control" id="idProducto" name="idProducto" value="@Model.Productos.IdProducto">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Agregar Imagen</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

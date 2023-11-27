@@ -1,0 +1,60 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.Categorias.DeleteModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Delete";
+}
+
+<div class="pagetitle">
+    <h1>Detalles Categoría</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item">Categorías</li>
+            <li class="breadcrumb-item active">Eliminar</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <h5 class="card-title">¿Estás seguro de eliminar esta Categoría?</h5>
+                    <div class="tab-content pt-2">
+
+                        <div class="tab-pane fade show active profile-edit pt-3" id="profile-edit">
+
+                            <div class="row mb-3">
+                                <label for="IdCategoria" class="col-md-4 col-lg-3 col-form-label">ID de Categoría</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="idCategoria" type="text" class="form-control" id="IdCategoria" value="@Model.Categoria.IdCategoria" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="TipoCategoria" class="col-md-4 col-lg-3 col-form-label">Tipo de Categoría</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="tipoCategoria" type="text" class="form-control" id="TipoCategoria" value="@Model.Categoria.TipoCategoria" disabled>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center">
+                                    <form method="post">
+                                        <input type="hidden" asp-for="Categoria.IdCategoria" />
+                                        <input type="submit" value="Eliminar" class="btn btn-danger" />
+                                        <a asp-page="Index" class="btn btn-secondary mx-2">Volver a la Lista</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

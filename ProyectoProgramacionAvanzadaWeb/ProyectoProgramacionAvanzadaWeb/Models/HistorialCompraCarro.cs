@@ -12,9 +12,9 @@ namespace ProyectoProgramacionAvanzadaWeb.Models
         [Display(Name = "Usuario")]
         public int IdUsuario { get; set; }
 
-        [Required(ErrorMessage = "El campo IdCarrito es obligatorio.")]
-        [Display(Name = "Carrito de Compras")]
-        public int IdCarrito { get; set; }
+        [Required(ErrorMessage = "El campo IdCarro es obligatorio.")]
+        [Display(Name = "Carro")]
+        public int IdCarro { get; set; }
 
         [Required(ErrorMessage = "El campo Descripción es obligatorio.")]
         [StringLength(300, ErrorMessage = "El campo Descripción debe tener como máximo 300 caracteres.")]
@@ -31,12 +31,12 @@ namespace ProyectoProgramacionAvanzadaWeb.Models
         public int IdEstado { get; set; }
 
         [ForeignKey("IdUsuario")]
-        public Usuarios Usuario { get; set; }
+        public Usuarios? Usuario { get; set; }
 
-        [ForeignKey("IdCarrito")]
-        public CarritoDeCompras Carrito { get; set; }
+        [ForeignKey("IdCarro")]
+        public Carros? Carro { get; set; }
 
         [ForeignKey("IdEstado")]
-        public Estados Estado { get; set; }
+        public Estados? Estado { get; set; }
     }
 }

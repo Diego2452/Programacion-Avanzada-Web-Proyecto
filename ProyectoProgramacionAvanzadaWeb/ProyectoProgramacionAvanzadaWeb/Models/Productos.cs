@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
+using ProyectoProgramacionAvanzadaWeb.Models;
+
 namespace ProyectoProgramacionAvanzadaWeb.Models
 {
     public class Productos
@@ -41,10 +43,10 @@ namespace ProyectoProgramacionAvanzadaWeb.Models
         public bool Estado { get; set; }
 
         [ForeignKey("IdProveedor")]
-        public Proveedores Proveedor { get; set; }
+        public Proveedores? Proveedor { get; set; }
 
         [ForeignKey("IdCategoria")]
-        public Categoria Categoria { get; set; }
+        public Categoria? Categoria { get; set; }
         [ForeignKey("IdProducto")]
         public ICollection<ImagenesProductos>? Imagenes { get; set; }
     }

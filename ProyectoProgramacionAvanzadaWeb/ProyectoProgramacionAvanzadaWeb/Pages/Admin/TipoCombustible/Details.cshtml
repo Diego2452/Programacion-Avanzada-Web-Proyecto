@@ -1,0 +1,55 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoCombustible.DetailsModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Details";
+}
+
+<div class="pagetitle">
+    <h1>Detalles de Tipo de Combustible</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item">Combustibles</li>
+            <li class="breadcrumb-item active">Detalles</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-8">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <ul class="nav nav-tabs nav-tabs-bordered">
+                        <li class="nav-item">
+                            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-edit">Detalles de Tipo de Combustible</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content pt-2">
+                        <div class="tab-pane fade show active profile-edit pt-3" id="profile-edit">
+                            <div class="row mb-3">
+                                <label for="IdCombustible" class="col-md-4 col-lg-3 col-form-label">ID de Combustible</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="idCombustible" type="text" class="form-control" id="IdCombustible" value="@Model.TipoCombustibles.IdCombustible" disabled>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="TipoCombustible" class="col-md-4 col-lg-3 col-form-label">Tipo de Combustible</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="tipoCombustible" type="text" class="form-control" id="TipoCombustible" value="@Model.TipoCombustibles.TipoCombustible" disabled>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center">
+                                    <a asp-page="Index" class="btn btn-secondary mx-2">Volver a la Lista</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

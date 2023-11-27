@@ -36,6 +36,50 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2Fycm9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Categorias/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcmlhc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Categorias/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcmlhc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Categorias/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcmlhc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Categorias/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcmlhc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Categorias/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcmlhc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Facturas/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRmFjdHVyYXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Facturas/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRmFjdHVyYXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Facturas/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRmFjdHVyYXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/HistorialComprasCarros/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSGlzdG9yaWFsQ29tcHJhc0NhcnJvc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/HistorialComprasCarros/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSGlzdG9yaWFsQ29tcHJhc0NhcnJvc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/HistorialComprasCarros/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSGlzdG9yaWFsQ29tcHJhc0NhcnJvc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Identificaciones/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSWRlbnRpZmljYWNpb25lc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -58,6 +102,146 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/MarcasCarro/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFyY2FzQ2Fycm9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/MarcasCarro/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFyY2FzQ2Fycm9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/MarcasCarro/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFyY2FzQ2Fycm9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/MarcasCarro/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFyY2FzQ2Fycm9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/MarcasCarro/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWFyY2FzQ2Fycm9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/MetodoDePago/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWV0b2RvRGVQYWdvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/MetodoDePago/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWV0b2RvRGVQYWdvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/MetodoDePago/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWV0b2RvRGVQYWdvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/MetodoDePago/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWV0b2RvRGVQYWdvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/MetodoDePago/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTWV0b2RvRGVQYWdvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/ModelosCarro/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW9kZWxvc0NhcnJvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/ModelosCarro/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW9kZWxvc0NhcnJvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/ModelosCarro/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW9kZWxvc0NhcnJvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/ModelosCarro/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW9kZWxvc0NhcnJvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/ModelosCarro/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cTW9kZWxvc0NhcnJvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Producto/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdG9cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Producto/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdG9cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Producto/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdG9cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Producto/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdG9cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Producto/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Proveedor/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvdmVlZG9yXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Proveedor/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvdmVlZG9yXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Proveedor/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvdmVlZG9yXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Proveedor/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvdmVlZG9yXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Proveedor/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvdmVlZG9yXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoCombustible/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb0NvbWJ1c3RpYmxlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoCombustible/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb0NvbWJ1c3RpYmxlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoCombustible/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb0NvbWJ1c3RpYmxlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoCombustible/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb0NvbWJ1c3RpYmxlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoCombustible/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb0NvbWJ1c3RpYmxlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoFinanciamiento/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb0ZpbmFuY2lhbWllbnRvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoFinanciamiento/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb0ZpbmFuY2lhbWllbnRvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoFinanciamiento/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb0ZpbmFuY2lhbWllbnRvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoFinanciamiento/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb0ZpbmFuY2lhbWllbnRvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoFinanciamiento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb0ZpbmFuY2lhbWllbnRvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoGeneros/Create.cshtml]
@@ -98,6 +282,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoRoles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb1JvbGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoTransmision/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb1RyYW5zbWlzaW9uXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoTransmision/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb1RyYW5zbWlzaW9uXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoTransmision/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb1RyYW5zbWlzaW9uXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoTransmision/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb1RyYW5zbWlzaW9uXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/TipoTransmision/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cVGlwb1RyYW5zbWlzaW9uXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/antho/Documents/GitHub/Programacion-Avanzada-Web-Proyecto/ProyectoProgramacionAvanzadaWeb/ProyectoProgramacionAvanzadaWeb/Pages/Admin/Usuario/Create.cshtml]

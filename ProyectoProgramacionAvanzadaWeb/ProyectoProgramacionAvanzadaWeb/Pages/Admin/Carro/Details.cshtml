@@ -93,6 +93,7 @@
                     <div class="col-12">
                         <div class="d-flex justify-content-center">
                             <a asp-page="Index" class="btn btn-secondary mx-2">Volver a la Lista</a>
+                            <a class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#agregarImagenModal">Agregar Imagen</a>
                         </div>
                     </div>
                 </div>
@@ -100,7 +101,6 @@
         </div>
 
         <div class="col-xl-6">
-            <!-- Imágenes del Carro -->
             <div class="card">
                 <div class="card-body pt-3">
                     <h5 class="card-title">Imágenes del Carro</h5>
@@ -130,7 +130,6 @@
     </div>
 </section>
 
-<!-- Modal -->
 <div class="modal fade" id="imagenModal" tabindex="-1" aria-labelledby="imagenModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
@@ -141,6 +140,14 @@
                         {
                             <div class="carousel-item @(index == 0 ? "active" : "")">
                                 <img src="@imagen.ImagenPath" class="d-block w-100 img-fluid" style="width: 100%; height: auto;" alt="Imagen del Carro">
+                                <h4>Imagen: @(index + 1)</h4>
+                                <div class="overlay text-center mt-2">
+                                    <form method="post" asp-page-handler="EliminarImagen" asp-route-idImagen="@imagen.IdImagen" asp-route-idCarro="@Model.Carros.IdCarro">
+                                        <button type="submit" class="btn btn-danger delete-btn">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
                             </div>
                         }
                     </div>
@@ -152,6 +159,33 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Siguiente</span>
                     </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="agregarImagenModal" tabindex="-1" aria-labelledby="imagenModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Agregar Imagen</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data" asp-page-handler="AgregarImagen" class="mb-3">
+                            <div class="mb-3">
+                                <label for="rutaImagen" class="form-label">Ruta de la Imagen</label>
+                                <input type="text" class="form-control" id="rutaImagen" name="rutaImagen" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="idProducto" class="form-label">ID del Producto</label>
+                                <input type="number" class="form-control" id="idCarro" name="idCarro" value="@Model.Carros.IdCarro">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Agregar Imagen</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

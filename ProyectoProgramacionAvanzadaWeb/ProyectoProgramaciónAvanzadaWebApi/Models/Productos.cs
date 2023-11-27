@@ -41,10 +41,10 @@ namespace ProyectoProgramacionAvanzadaWebApi.Models
         public bool Estado { get; set; }
 
         [ForeignKey("IdProveedor")]
-        public Proveedores Proveedor { get; set; }
+        public Proveedores? Proveedor { get; set; }
 
         [ForeignKey("IdCategoria")]
-        public Categoria Categoria { get; set; }
+        public Categoria? Categoria { get; set; }
         [ForeignKey("IdProducto")]
         public ICollection<ImagenesProductos>? Imagenes { get; set; }
     }

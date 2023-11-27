@@ -18,7 +18,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Services
 
         public async Task<(List<HistorialCompraCarro> Historiales, string Message)> ObtenerHistorialesAsync()
         {
-            string apiEndpoint = "HistorialCompraCarro";
+            string apiEndpoint = "HistorialCompraCarros";
 
             using (HttpClient client = new HttpClient())
             {
@@ -51,7 +51,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Services
 
         public async Task<(bool Success, string Message)> CrearHistorialAsync(HistorialCompraCarro historial)
         {
-            string apiEndpoint = "HistorialCompraCarro";
+            string apiEndpoint = "HistorialCompraCarros";
 
             using (HttpClient client = new HttpClient())
             {
@@ -94,7 +94,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Services
 
         public async Task<(bool Success, string Message)> EliminarHistorialAsync(int id)
         {
-            string apiEndpoint = $"HistorialCompraCarro/{id}";
+            string apiEndpoint = $"HistorialCompraCarros/{id}";
 
             using (HttpClient client = new HttpClient())
             {
@@ -120,7 +120,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Services
 
         public async Task<(HistorialCompraCarro Historial, string Message)> ObtenerDetallesHistorialAsync(int id)
         {
-            string apiEndpoint = $"HistorialCompraCarro/{id}";
+            string apiEndpoint = $"HistorialCompraCarros/{id}";
 
             using (HttpClient client = new HttpClient())
             {
@@ -156,7 +156,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Services
 
         public async Task<(bool Success, string Message)> EditarHistorialAsync(HistorialCompraCarro historial)
         {
-            string apiEndpoint = $"HistorialCompraCarro/{historial.IdHistorialCompraCarro}";
+            string apiEndpoint = $"HistorialCompraCarros/{historial.IdHistorialCompraCarro}";
 
             using (HttpClient client = new HttpClient())
             {
