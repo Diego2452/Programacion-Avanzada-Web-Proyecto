@@ -2,10 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProyectoProgramacionAvanzadaWebApi.Data;
 using ProyectoProgramacionAvanzadaWebApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProyectoProgramacionAvanzadaWebApi.Controllers
 {
@@ -28,7 +24,7 @@ namespace ProyectoProgramacionAvanzadaWebApi.Controllers
             {
                 var historiales = await _context.HistorialCompraCarro
                     .Include(h => h.Usuario)
-                    .Include(h => h.Carrito)
+                    .Include(h => h.Carro)
                     .Include(h => h.Estado)
                     .ToListAsync();
 
@@ -53,7 +49,7 @@ namespace ProyectoProgramacionAvanzadaWebApi.Controllers
             {
                 var historial = await _context.HistorialCompraCarro
                     .Include(h => h.Usuario)
-                    .Include(h => h.Carrito)
+                    .Include(h => h.Carro)
                     .Include(h => h.Estado)
                     .FirstOrDefaultAsync(h => h.IdHistorialCompraCarro == id);
 

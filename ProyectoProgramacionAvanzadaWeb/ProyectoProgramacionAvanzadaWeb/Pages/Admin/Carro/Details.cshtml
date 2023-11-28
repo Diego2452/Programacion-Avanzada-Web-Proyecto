@@ -1,0 +1,193 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.Carro.DetailsModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Details";
+}
+
+<div class="pagetitle">
+    <h1>Detalles del Carro</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item">Carros</li>
+            <li class="breadcrumb-item active">Detalles</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-6">
+            <!-- Detalles del Carro -->
+            <div class="card">
+                <div class="card-body pt-3">
+                    <h5 class="card-title">Detalles del Carro</h5>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="IdCarro" class="col-form-label">ID del Carro</label>
+                            <input name="idCarro" type="text" class="form-control" id="IdCarro" value="@Model.Carros.IdCarro" disabled>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="IdModelo" class="col-form-label">ID del Modelo</label>
+                            <input name="idModelo" type="text" class="form-control" id="IdModelo" value="@Model.Carros.IdModelo" disabled>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="Estilo" class="col-form-label">Estilo</label>
+                            <input name="estilo" type="text" class="form-control" id="Estilo" value="@Model.Carros.Estilo" disabled>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="Anio" class="col-form-label">Año</label>
+                            <input name="anio" type="text" class="form-control" id="Anio" value="@Model.Carros.Anio" disabled>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="IdCombustible" class="col-form-label">Tipo de Combustible</label>
+                            <input name="idCombustible" type="text" class="form-control" id="IdCombustible" value="@Model.Carros.IdCombustible" disabled>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="IdTransmision" class="col-form-label">Tipo de Transmisión</label>
+                            <input name="idTransmision" type="text" class="form-control" id="IdTransmision" value="@Model.Carros.IdTransmision" disabled>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="NumeroPuertas" class="col-form-label">Número de Puertas</label>
+                            <input name="numeroPuertas" type="text" class="form-control" id="NumeroPuertas" value="@Model.Carros.NumeroPuertas" disabled>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ColorExterior" class="col-form-label">Color Exterior</label>
+                            <input name="colorExterior" type="text" class="form-control" id="ColorExterior" value="@Model.Carros.ColorExterior" disabled>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="ColorInterior" class="col-form-label">Color Interior</label>
+                            <input name="colorInterior" type="text" class="form-control" id="ColorInterior" value="@Model.Carros.ColorInterior" disabled>
+                        </div>
+                    </div>
+                    <div class="row mb-3">     
+                        <div class="col-md-4">
+                            <label for="FechaIngreso" class="col-form-label">Fecha de Ingreso</label>
+                            <input name="fechaIngreso" type="text" class="form-control" id="FechaIngreso" value="@Model.Carros.FechaIngreso" disabled>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="Placa" class="col-form-label">Placa</label>
+                            <input name="placa" type="text" class="form-control" id="Placa" value="@Model.Carros.Placa" disabled>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="IdFinanciamiento" class="col-form-label">Tipo de Financiamiento</label>
+                            <input name="idFinanciamiento" type="text" class="form-control" id="IdFinanciamiento" value="@Model.Carros.IdFinanciamiento" disabled>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="Apartado" class="col-form-label">Apartado</label>
+                            <input name="apartado" type="text" class="form-control" id="Apartado" value="@Model.Carros.Apartado" disabled>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="Precio" class="col-form-label">Precio</label>
+                            <input name="precio" type="text" class="form-control" id="Precio" value="@Model.Carros.Precio" disabled>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="d-flex justify-content-center">
+                            <a asp-page="Index" class="btn btn-secondary mx-2">Volver a la Lista</a>
+                            <a class="btn btn-success mx-2" data-bs-toggle="modal" data-bs-target="#agregarImagenModal">Agregar Imagen</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <h5 class="card-title">Imágenes del Carro</h5>
+                    <!-- Carrusel -->
+                    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach (var (imagen, index) in Model.Carros.Imagenes.Select((value, i) => (value, i)))
+                            {
+                                <div class="carousel-item @(index == 0 ? "active" : "")">
+                                    <img src="@imagen.ImagenPath" class="d-block w-100 img-fluid" style="width: 100%; height: auto;" alt="Imagen del Carro" data-bs-toggle="modal" data-bs-target="#imagenModal">
+                                </div>
+                            }
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="imagenModal" tabindex="-1" aria-labelledby="imagenModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div id="carouselModal" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        @foreach (var (imagen, index) in Model.Carros.Imagenes.Select((value, i) => (value, i)))
+                        {
+                            <div class="carousel-item @(index == 0 ? "active" : "")">
+                                <img src="@imagen.ImagenPath" class="d-block w-100 img-fluid" style="width: 100%; height: auto;" alt="Imagen del Carro">
+                                <h4>Imagen: @(index + 1)</h4>
+                                <div class="overlay text-center mt-2">
+                                    <form method="post" asp-page-handler="EliminarImagen" asp-route-idImagen="@imagen.IdImagen" asp-route-idCarro="@Model.Carros.IdCarro">
+                                        <button type="submit" class="btn btn-danger delete-btn">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselModal" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselModal" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="agregarImagenModal" tabindex="-1" aria-labelledby="imagenModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Agregar Imagen</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" enctype="multipart/form-data" asp-page-handler="AgregarImagen" class="mb-3">
+                            <div class="mb-3">
+                                <label for="rutaImagen" class="form-label">Ruta de la Imagen</label>
+                                <input type="text" class="form-control" id="rutaImagen" name="rutaImagen" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="idProducto" class="form-label">ID del Producto</label>
+                                <input type="number" class="form-control" id="idCarro" name="idCarro" value="@Model.Carros.IdCarro">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Agregar Imagen</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

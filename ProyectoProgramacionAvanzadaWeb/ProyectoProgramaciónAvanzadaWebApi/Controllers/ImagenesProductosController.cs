@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ProyectoProgramacionAvanzadaWebApi.Data;
-using ProyectoProgramacionAvanzadaWebApi.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ProyectoProgramacionAvanzadaWebApi.Data;
+using ProyectoProgramacionAvanzadaWebApi.Models;
 
-namespace ProyectoProgramacionAvanzadaWebApi.Controllers
+namespace ProyectoProgramaciónAvanzadaWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -24,134 +25,100 @@ namespace ProyectoProgramacionAvanzadaWebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ImagenesProductos>>> GetImagenesProductos()
         {
-            try
-            {
-                var imagenes = await _context.ImagenesProductos.Include(ip => ip.Producto).ToListAsync();
-
-                if (imagenes == null || imagenes.Count == 0)
-                {
-                    return NotFound("No se encontraron imágenes de productos.");
-                }
-
-                return imagenes;
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
-            }
+          if (_context.ImagenesProductos == null)
+          {
+              return NotFound();
+          }
+            return await _context.ImagenesProductos.ToListAsync();
         }
 
         // GET: api/ImagenesProductos/5
         [HttpGet("{id}")]
         public async Task<ActionResult<ImagenesProductos>> GetImagenesProductos(int id)
         {
-            try
-            {
-                var imagen = await _context.ImagenesProductos
-                    .Include(ip => ip.Producto)
-                    .FirstOrDefaultAsync(ip => ip.IdImagen == id);
+          if (_context.ImagenesProductos == null)
+          {
+              return NotFound();
+          }
+            var imagenesProductos = await _context.ImagenesProductos.FindAsync(id);
 
-                if (imagen == null)
-                {
-                    return NotFound("Imagen de producto no encontrada.");
-                }
-
-                return imagen;
-            }
-            catch (Exception ex)
+            if (imagenesProductos == null)
             {
-                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
-            }
-        }
-
-        // POST: api/ImagenesProductos
-        [HttpPost]
-        public async Task<ActionResult<ImagenesProductos>> PostImagenesProductos(ImagenesProductos imagen)
-        {
-            if (_context.ImagenesProductos == null)
-            {
-                return Problem("Entity set 'LuxuryCarsContext.ImagenesProductos' is null.");
+                return NotFound();
             }
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            try
-            {
-                _context.ImagenesProductos.Add(imagen);
-                await _context.SaveChangesAsync();
-                return CreatedAtAction("GetImagenesProductos", new { id = imagen.IdImagen }, imagen);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
-            }
+            return imagenesProductos;
         }
 
         // PUT: api/ImagenesProductos/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutImagenesProductos(int id, ImagenesProductos imagen)
+        public async Task<IActionResult> PutImagenesProductos(int id, ImagenesProductos imagenesProductos)
         {
-            if (id != imagen.IdImagen)
+            if (id != imagenesProductos.IdImagen)
             {
-                return BadRequest("El ID de imagen de producto no coincide con la imagen proporcionada.");
+                return BadRequest();
             }
 
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            _context.Entry(imagenesProductos).State = EntityState.Modified;
 
             try
             {
-                _context.Entry(imagen).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
-                return Ok("Imagen de producto actualizada exitosamente.");
             }
             catch (DbUpdateConcurrencyException)
             {
                 if (!ImagenesProductosExists(id))
                 {
-                    return NotFound("Imagen de producto no encontrada.");
+                    return NotFound();
                 }
                 else
                 {
-                    return StatusCode(500, "Error interno del servidor al actualizar la imagen de producto.");
+                    throw;
                 }
             }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
-            }
+
+            return NoContent();
+        }
+
+        // POST: api/ImagenesProductos
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<ImagenesProductos>> PostImagenesProductos(ImagenesProductos imagenesProductos)
+        {
+          if (_context.ImagenesProductos == null)
+          {
+              return Problem("Entity set 'LuxuryCarsContext.ImagenesProductos'  is null.");
+          }
+            _context.ImagenesProductos.Add(imagenesProductos);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetImagenesProductos", new { id = imagenesProductos.IdImagen }, imagenesProductos);
         }
 
         // DELETE: api/ImagenesProductos/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteImagenesProductos(int id)
         {
-            try
+            if (_context.ImagenesProductos == null)
             {
-                var imagen = await _context.ImagenesProductos.FindAsync(id);
-                if (imagen == null)
-                {
-                    return NotFound("Imagen de producto no encontrada.");
-                }
+                return NotFound();
+            }
+            var imagenesProductos = await _context.ImagenesProductos.FindAsync(id);
+            if (imagenesProductos == null)
+            {
+                return NotFound();
+            }
 
-                _context.ImagenesProductos.Remove(imagen);
-                await _context.SaveChangesAsync();
-                return Ok("Imagen de producto borrada con éxito.");
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
-            }
+            _context.ImagenesProductos.Remove(imagenesProductos);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
         }
 
         private bool ImagenesProductosExists(int id)
         {
-            return _context.ImagenesProductos.Any(ip => ip.IdImagen == id);
+            return (_context.ImagenesProductos?.Any(e => e.IdImagen == id)).GetValueOrDefault();
         }
     }
 }

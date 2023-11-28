@@ -1,0 +1,80 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.Proveedor.DeleteModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Delete";
+}
+
+<div class="pagetitle">
+    <h1>Detalles Proveedor</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item">Proveedores</li>
+            <li class="breadcrumb-item active">Eliminar</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <h5 class="card-title">¿Estás seguro de eliminar este Proveedor?</h5>
+                    <div class="tab-content pt-2">
+
+                        <div class="tab-pane fade show active profile-edit pt-3" id="profile-edit">
+
+                            <div class="row mb-3">
+                                <label for="IdProveedor" class="col-md-4 col-lg-3 col-form-label">ID de Proveedor</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="idProveedor" type="text" class="form-control" id="IdProveedor" value="@Model.Proveedores.IdProveedor" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="NombreProveedor" class="col-md-4 col-lg-3 col-form-label">Nombre del Proveedor</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="nombreProveedor" type="text" class="form-control" id="NombreProveedor" value="@Model.Proveedores.NombreProveedor" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="UbicacionEmpresa" class="col-md-4 col-lg-3 col-form-label">Ubicación de la Empresa</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="ubicacionEmpresa" type="text" class="form-control" id="UbicacionEmpresa" value="@Model.Proveedores.UbicacionEmpresa" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="CorreoElectronicoEmpresa" class="col-md-4 col-lg-3 col-form-label">Correo Electrónico de la Empresa</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="correoElectronicoEmpresa" type="text" class="form-control" id="CorreoElectronicoEmpresa" value="@Model.Proveedores.CorreoElectronicoEmpresa" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="NumeroTelefonicoEmpresa" class="col-md-4 col-lg-3 col-form-label">Número Telefónico de la Empresa</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="numeroTelefonicoEmpresa" type="text" class="form-control" id="NumeroTelefonicoEmpresa" value="@Model.Proveedores.NumeroTelefonicoEmpresa" disabled>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center">
+                                    <form method="post">
+                                        <input type="hidden" asp-for="Proveedores.IdProveedor" />
+                                        <input type="submit" value="Eliminar" class="btn btn-danger" />
+                                        <a asp-page="Index" class="btn btn-secondary mx-2">Volver a la Lista</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

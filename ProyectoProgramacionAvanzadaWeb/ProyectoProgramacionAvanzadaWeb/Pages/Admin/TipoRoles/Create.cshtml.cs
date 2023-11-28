@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
+using ProyectoProgramacionAvanzadaWeb.Models;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Newtonsoft.Json;
-using ProyectoProgramacionAvanzadaWeb.Data;
-using ProyectoProgramacionAvanzadaWeb.Models;
 
 namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoRoles
 {
@@ -30,7 +24,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoRoles
 
         [BindProperty]
         public Roles Roles { get; set; } = new Roles();
-        
+
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()

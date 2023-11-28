@@ -1,0 +1,90 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.ModelosCarro.CreateModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Create";
+}
+
+<div class="pagetitle">
+    <h1>Crear Modelo de Carro</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+            <li class="breadcrumb-item">Modelos</li>
+            <li class="breadcrumb-item active">Crear</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Formulario de Registro de Modelos de Carro</h5>
+                    @if (!string.IsNullOrEmpty(Model.Message))
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            @if (Model.Message.StartsWith("Error interno del servidor: "))
+                            {
+                                <h4 class="alert-heading">Error interno del servidor:</h4>
+                                <hr>
+                                <p>@Model.Message.Substring("Error interno del servidor: ".Length)</p>
+                            }
+                            else
+                            {
+                                <h4 class="alert-heading">Errores de validación:</h4>
+                                @foreach (var error in Model.Message.Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries))
+                                {
+                                    <p>@error</p>
+                                    <hr>
+                                }
+                            }
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                        </div>
+                    }
+
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <h4 class="alert-heading">Operación exitosa:</h4>
+                            <hr>
+                            <p>@TempData["SuccessMessage"]</p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                        </div>
+                    }
+                    <form method="post" class="row g-3 needs-validation" novalidate>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="col-md-4 position-relative">
+                            <label asp-for="ModelosCarros.IdMarca" class="form-label">Marca</label>
+                            <select asp-for="ModelosCarros.IdMarca" asp-items="ViewBag.IdMarca" class="form-select" required>
+                            </select>
+                            <div class="invalid-tooltip">
+                                <span asp-validation-for="ModelosCarros.IdMarca"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 position-relative">
+                            <label asp-for="ModelosCarros.Modelo" class="form-label">Modelo</label>
+                            <input asp-for="ModelosCarros.Modelo" class="form-control" required>
+                            <div class="invalid-tooltip">
+                                <span asp-validation-for="ModelosCarros.Modelo"></span>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary mx-2">Crear</button>
+                                <a asp-page="Index" class="btn btn-secondary mx-2">Volver a la Lista</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

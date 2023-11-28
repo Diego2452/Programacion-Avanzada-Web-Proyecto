@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProyectoProgramacionAvanzadaWebApi.Models
 {
@@ -42,9 +42,9 @@ namespace ProyectoProgramacionAvanzadaWebApi.Models
         [StringLength(255, ErrorMessage = "El campo Contraseña debe tener como máximo 255 caracteres.")]
         public string? Contrasenna { get; set; }
 
-        [Required(ErrorMessage = "El campo IdSexo es obligatorio.")]
-        [Display(Name = "Sexo")]
-        public int? IdSexo { get; set; }
+        [Required(ErrorMessage = "El campo IdGenero es obligatorio.")]
+        [Display(Name = "Genero")]
+        public int? IdGenero { get; set; }
 
         [Required(ErrorMessage = "El campo Teléfono es obligatorio.")]
         [StringLength(20, ErrorMessage = "El campo Teléfono debe tener como máximo 20 caracteres.")]
@@ -54,8 +54,8 @@ namespace ProyectoProgramacionAvanzadaWebApi.Models
         [StringLength(300, ErrorMessage = "El campo Dirección debe tener como máximo 300 caracteres.")]
         public string? Direccion { get; set; }
 
-        [ForeignKey("IdSexo")]
-        public Sexo? Sexo { get; set; }
+        [ForeignKey("IdGenero")]
+        public Genero? Genero { get; set; }
 
         [ForeignKey("IdTipoIdentificacion")]
         public TipoIdentificaciones? TipoIdentificacion { get; set; }

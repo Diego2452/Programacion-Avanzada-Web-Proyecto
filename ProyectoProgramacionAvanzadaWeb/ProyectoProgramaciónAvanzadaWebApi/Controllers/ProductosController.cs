@@ -2,10 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using ProyectoProgramacionAvanzadaWebApi.Data;
 using ProyectoProgramacionAvanzadaWebApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ProyectoProgramacionAvanzadaWebApi.Controllers
 {
@@ -28,6 +24,7 @@ namespace ProyectoProgramacionAvanzadaWebApi.Controllers
             {
                 var productos = await _context.Productos.Include(p => p.Proveedor)
                                                        .Include(p => p.Categoria)
+                                                       .Include(p => p.Imagenes)
                                                        .ToListAsync();
 
                 if (productos == null || productos.Count == 0)
@@ -51,6 +48,7 @@ namespace ProyectoProgramacionAvanzadaWebApi.Controllers
             {
                 var producto = await _context.Productos.Include(p => p.Proveedor)
                                                        .Include(p => p.Categoria)
+                                                       .Include(p => p.Imagenes)
                                                        .FirstOrDefaultAsync(p => p.IdProducto == id);
 
                 if (producto == null)

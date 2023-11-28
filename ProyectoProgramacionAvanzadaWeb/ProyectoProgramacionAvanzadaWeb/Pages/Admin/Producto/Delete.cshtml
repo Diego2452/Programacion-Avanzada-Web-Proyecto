@@ -1,0 +1,97 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.Producto.DeleteModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Delete";
+}
+
+<div class="pagetitle">
+    <h1>Detalles Producto</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Admin</li>
+            <li class="breadcrumb-item">Productos</li>
+            <li class="breadcrumb-item active">Eliminar</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section profile">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body pt-3">
+                    <h5 class="card-title">¿Estás seguro de eliminar este Producto?</h5>
+                    <div class="tab-content pt-2">
+
+                        <div class="tab-pane fade show active profile-edit pt-3" id="profile-edit">
+
+                            <div class="row mb-3">
+                                <label for="Categoria" class="col-md-4 col-lg-3 col-form-label">Categoría</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="categoria" type="text" class="form-control" id="Categoria" value="@Model.Productos.Categoria.TipoCategoria" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="Proveedor" class="col-md-4 col-lg-3 col-form-label">Proveedor</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="proveedor" type="text" class="form-control" id="Proveedor" value="@Model.Productos.Proveedor.NombreProveedor" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="NombreProducto" class="col-md-4 col-lg-3 col-form-label">Nombre del Producto</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="nombreProducto" type="text" class="form-control" id="NombreProducto" value="@Model.Productos.NombreProducto" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="Precio" class="col-md-4 col-lg-3 col-form-label">Precio</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="precio" type="text" class="form-control" id="Precio" value="@Model.Productos.Precio" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="CantidadStock" class="col-md-4 col-lg-3 col-form-label">Cantidad en Stock</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="cantidadStock" type="text" class="form-control" id="CantidadStock" value="@Model.Productos.CantidadStock" disabled>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="Descripcion" class="col-md-4 col-lg-3 col-form-label">Descripción</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <textarea name="descripcion" class="form-control" id="Descripcion" rows="3" disabled>
+                                        @Model.Productos.Descripcion
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="Estado" class="col-md-4 col-lg-3 col-form-label">Estado</label>
+                                <div class="col-md-8 col-lg-9">
+                                    <input name="estado" type="text" class="form-control" id="Estado" value="@((Model.Productos.Estado) ? "Activo" : "Inactivo")" disabled>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="d-flex justify-content-center">
+                                    <form method="post">
+                                        <input type="hidden" asp-for="Productos.IdProducto" />
+                                        <input type="submit" value="Eliminar" class="btn btn-danger" />
+                                        <a asp-page="Index" class="btn btn-secondary mx-2">Volver a la Lista</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

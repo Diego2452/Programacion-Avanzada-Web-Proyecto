@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
+using ProyectoProgramacionAvanzadaWeb.Models;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
-using ProyectoProgramacionAvanzadaWeb.Data;
-using ProyectoProgramacionAvanzadaWeb.Models;
 
 namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoGeneros
 {
@@ -25,7 +18,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoGeneros
         }
 
         [BindProperty]
-        public Sexo Sexo { get; set; } = default!;
+        public Genero Genero { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -36,7 +29,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoGeneros
             }
 
             string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = $"sexos/{id}";
+            string apiEndpoint = $"Generos/{id}";
 
             using (HttpClient client = new HttpClient())
             {
@@ -47,9 +40,9 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoGeneros
                     if (response.IsSuccessStatusCode)
                     {
                         string jsonContent = await response.Content.ReadAsStringAsync();
-                        Sexo = JsonConvert.DeserializeObject<Sexo>(jsonContent);
+                        Genero = JsonConvert.DeserializeObject<Genero>(jsonContent);
 
-                        if (Sexo == null)
+                        if (Genero == null)
                         {
                             Message = "Tipo de Genero no encontrado en la API.";
                         }
@@ -81,13 +74,13 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoGeneros
             }
 
             string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = $"sexos/{Sexo.IdSexo}";
+            string apiEndpoint = $"Generos/{Genero.IdGenero}";
 
             using (HttpClient client = new HttpClient())
             {
                 try
                 {
-                    string jsonContent = JsonConvert.SerializeObject(Sexo);
+                    string jsonContent = JsonConvert.SerializeObject(Genero);
                     var httpContent = new StringContent(jsonContent, Encoding.UTF8, "application/json");
 
                     HttpResponseMessage response = await client.PutAsync($"{baseUrl}{apiEndpoint}", httpContent);
@@ -95,7 +88,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoGeneros
                     if (response.IsSuccessStatusCode)
                     {
                         TempData["SuccessMessage"] = "Operación exitosa: El Tipo de Genero ha sido modificado.";
-                        return RedirectToPage("./Edit", new { id = Sexo.IdSexo });
+                        return RedirectToPage("./Edit", new { id = Genero.IdGenero });
                         //return RedirectToPage("./Edit");
                     }
                     if (response.StatusCode == HttpStatusCode.BadRequest)

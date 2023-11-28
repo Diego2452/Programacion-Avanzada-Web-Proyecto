@@ -1,0 +1,71 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.Facturas.DeleteModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Facturacion</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Facturacion.Descripcion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Facturacion.Descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Facturacion.Fecha)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Facturacion.Fecha)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Facturacion.TotalFactura)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Facturacion.TotalFactura)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Facturacion.DireccionEnvio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Facturacion.DireccionEnvio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Facturacion.NumeroFactura)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Facturacion.NumeroFactura)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Facturacion.Estado)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Facturacion.Estado.NombreEstado)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Facturacion.Usuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Facturacion.Usuario.Apellido_Paterno)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Facturacion.MetodoPago)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Facturacion.MetodoPago.NombreMetodo)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Facturacion.IdFactura" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

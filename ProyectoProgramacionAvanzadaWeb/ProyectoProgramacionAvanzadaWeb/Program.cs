@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using ProyectoProgramacionAvanzadaWeb.Data;
 using ProyectoProgramacionAvanzadaWeb.Services;
-using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +9,25 @@ builder.Services.AddRazorPages();
 builder.Services.AddDbContext<ProyectoProgramacionAvanzadaWebContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ProyectoProgramacionAvanzadaWebContext") ?? throw new InvalidOperationException("Connection string 'ProyectoProgramacionAvanzadaWebContext' not found.")));
 
-//builder.Services.AddScoped<ApiServiceUsuario>();
+builder.Services.AddScoped<CarrosApiService>();
+builder.Services.AddScoped<CarrosImagenesApiService>();
+builder.Services.AddScoped<CategoriaApiService>();
+builder.Services.AddScoped<EstadosApiService>();
+builder.Services.AddScoped<FacturacionApiService>();
+builder.Services.AddScoped<GenerosApiService>();
+builder.Services.AddScoped<HistorialCompraCarroApiService>();
+builder.Services.AddScoped<ImagenesProductosApiService>();
+builder.Services.AddScoped<MarcasCarrosApiService>();
+builder.Services.AddScoped<MetodosDePagoApiService>();
+builder.Services.AddScoped<ModelosCarrosApiService>();
+builder.Services.AddScoped<ProductosApiService>();
+builder.Services.AddScoped<ProveedoresApiService>();
+builder.Services.AddScoped<RolesApiService>();
+builder.Services.AddScoped<TipoCombustiblesApiService>();
+builder.Services.AddScoped<TipoFinanciamientosApiService>();
+builder.Services.AddScoped<TipoIdentificacionesApiService>();
+builder.Services.AddScoped<TipoTransmisionesApiService>();
+builder.Services.AddScoped<UsuarioApiService>();
 
 var app = builder.Build();
 

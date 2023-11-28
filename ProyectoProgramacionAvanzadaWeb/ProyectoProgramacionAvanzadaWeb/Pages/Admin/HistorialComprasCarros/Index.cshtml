@@ -1,0 +1,96 @@
+﻿@page
+@model ProyectoProgramacionAvanzadaWeb.Pages.Admin.HistorialComprasCarros.IndexModel
+
+@{
+    Layout = "~/Pages/Shared/_LayoutAdminDashboard.cshtml";
+    ViewData["Title"] = "Index";
+}
+
+<div class="pagetitle">
+    <h1>Lista de Historial de Compras</h1>
+    <nav>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
+            <li class="breadcrumb-item">Historial de Compras</li>
+            <li class="breadcrumb-item active">Listar</li>
+        </ol>
+    </nav>
+</div>
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Historial de Compras</h5>
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <h4 class="alert-heading">Operación exitosa:</h4>
+                            <hr>
+                            <p>@TempData["SuccessMessage"]</p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                        </div>
+                    }
+                    <p>
+                        <a asp-page="./Create" class="btn btn-success">
+                            <i class="bi bi-person-plus"></i> Crear Historial de Compra
+                        </a>
+                    </p>
+                    @if (!string.IsNullOrEmpty(Model.Message))
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <h4 class="alert-heading">Error interno del servidor:</h4>
+                            <hr>
+                            <p>@Model.Message</p>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                        </div>
+                    }
+                    else
+                    {
+                        <table id="dataTable" class="table table-striped table-bordered">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Id Historial de Compra</th>
+                                    <th>Usuario</th>
+                                    <th>Carro</th>
+                                    <th>Descripción</th>
+                                    <th>Fecha</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.HistorialCompraCarro)
+                                {
+                                    <tr>
+                                        <td>@item.IdHistorialCompraCarro</td>
+                                        <td>@item.Usuario.Nombre</td>
+                                        <td>@item.Carro.ModeloCarro</td>
+                                        <td>@item.Descripcion</td>
+                                        <td>@item.Fecha</td>
+                                        <td>@item.Estado.NombreEstado</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a asp-page="./Edit" asp-route-id="@item.IdHistorialCompraCarro" class="btn btn-primary">
+                                                    <i class="bi bi-pencil"></i>
+                                                </a>
+                                                <a asp-page="./Details" asp-route-id="@item.IdHistorialCompraCarro" class="btn btn-info">
+                                                    <i class="bi bi-info-circle"></i>
+                                                </a>
+                                                <a asp-page="./Delete" asp-route-id="@item.IdHistorialCompraCarro" class="btn btn-danger">
+                                                    <i class="bi bi-trash"></i>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

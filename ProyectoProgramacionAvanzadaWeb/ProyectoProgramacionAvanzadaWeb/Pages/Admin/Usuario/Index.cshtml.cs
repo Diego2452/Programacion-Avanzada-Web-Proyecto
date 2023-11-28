@@ -1,61 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
-using ProyectoProgramacionAvanzadaWeb.Data;
 using ProyectoProgramacionAvanzadaWeb.Models;
+using ProyectoProgramacionAvanzadaWeb.Services;
+using System.Net;
 
 namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Usuario
 {
     public class IndexModel : PageModel
     {
 
-        private readonly IConfiguration _configuration;
+        private readonly UsuarioApiService _usuarioApiService;
+
         public string Message { get; set; }
 
-        public IndexModel(IConfiguration configuration)
+        public IndexModel(UsuarioApiService usuarioApiService)
         {
-            _configuration = configuration;
+            _usuarioApiService = usuarioApiService;
         }
 
         public IList<Usuarios> Usuarios { get; set; } = new List<Usuarios>();
 
         public async Task OnGetAsync()
         {
-            string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = "Usuarios";
+            var (usuarios, errorMessage) = await _usuarioApiService.ObtenerUsuariosAsync();
 
-            using (HttpClient client = new HttpClient())
+            if (usuarios != null)
             {
-                try
-                {
-                    HttpResponseMessage response = await client.GetAsync($"{baseUrl}{apiEndpoint}");
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string jsonContent = await response.Content.ReadAsStringAsync();
-                        List<Usuarios> usuarios = JsonConvert.DeserializeObject<List<Usuarios>>(jsonContent);
-
-                        Usuarios = usuarios;
-                    }
-                    else if (response.StatusCode == HttpStatusCode.NotFound)
-                    {
-                        Message = "No se encontraron usuarios en la base de datos.";
-                    }
-                    else
-                    {
-                        Message = "Error al obtener usuarios desde la API.";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Message = $"Error interno del servidor: {ex.Message}";
-                }
+                Usuarios = usuarios;
+            }
+            else
+            {
+                Message = errorMessage ?? "Error al obtener usuarios desde la API.";
             }
         }
     }

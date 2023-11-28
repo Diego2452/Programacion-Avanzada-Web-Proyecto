@@ -1,60 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
-using ProyectoProgramacionAvanzadaWeb.Data;
 using ProyectoProgramacionAvanzadaWeb.Models;
+using ProyectoProgramacionAvanzadaWeb.Services;
+using System.Net;
 
 namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.TipoRoles
 {
     public class IndexModel : PageModel
     {
-        private readonly IConfiguration _configuration;
+        private readonly RolesApiService _rolesApiService;
+
         public string Message { get; set; }
 
-        public IndexModel(IConfiguration configuration)
+        public IndexModel(RolesApiService rolesApiService)
         {
-            _configuration = configuration;
+            _rolesApiService = rolesApiService;
         }
 
-        public IList<Roles> Roles { get;set; } = new List<Roles>();
+        public IList<Roles> Roles { get; set; } = new List<Roles>();
 
         public async Task OnGetAsync()
         {
-            string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = "roles";
+            var (roles, errorMessage) = await _rolesApiService.ObtenerRolesAsync();
 
-            using (HttpClient client = new HttpClient())
+            if (roles != null)
             {
-                try
-                {
-                    HttpResponseMessage response = await client.GetAsync($"{baseUrl}{apiEndpoint}");
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string jsonContent = await response.Content.ReadAsStringAsync();
-                        List<Roles> roles = JsonConvert.DeserializeObject<List<Roles>>(jsonContent);
-
-                        Roles = roles;
-                    }
-                    else if (response.StatusCode == HttpStatusCode.NotFound)
-                    {
-                        Message = "No se encontraron Tipos de Roles en la base de datos.";
-                    }
-                    else
-                    {
-                        Message = "Error al obtener Tipos de Roles desde la API.";
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Message = $"Error interno del servidor: {ex.Message}";
-                }
+                Roles = roles;
+            }
+            else
+            {
+                Message = errorMessage ?? "Error al obtener roles desde la API.";
             }
         }
     }

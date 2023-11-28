@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProyectoProgramacionAvanzadaWeb.Models
 {
@@ -47,12 +47,12 @@ namespace ProyectoProgramacionAvanzadaWeb.Models
         public string NumeroFactura { get; set; }
 
         [ForeignKey("IdEstado")]
-        public Estados Estado { get; set; }
+        public Estados? Estado { get; set; }
 
         [ForeignKey("IdUsuario")]
-        public Usuarios Usuario { get; set; }
+        public Usuarios? Usuario { get; set; }
 
         [ForeignKey("IdMetodoPago")]
-        public MetodosDePago MetodoPago { get; set; }
+        public MetodosDePago? MetodoPago { get; set; }
     }
 }
