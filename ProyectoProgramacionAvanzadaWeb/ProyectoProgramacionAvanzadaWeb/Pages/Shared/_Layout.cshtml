@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,21 +44,34 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center justify-content-between">
             <a asp-area="" asp-controller="Home" asp-action="Index" class="logo d-flex align-items-center me-auto me-lg-0">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="~/assetsHome/img/logo.png" alt=""> -->
-                <h1>Luxury Cars<span>.</span></h1>
+                <!-- <h1>Luxury Cars<span>.</span></h1> -->
+                <img src="~/assetsHome/img/Logo.png" alt="Luxury Cars Logo" style="height=100px">
             </a>
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a href="#hero">Inicio</a></li>
-                    <li><a href="#about">Sobre Nosotros</a></li>
-                    <li><a href="#events">Eventos</a></li>
-                    <li><a href="#chefs">Servicios</a></li>
-                    <li><a href="#gallery">Galeria</a></li>
+                    <li><a asp-page="/Index" asp-fragment="hero" 
+                        style="color:white">Inicio</a></li>
+                    <li><a asp-page="/Index" asp-fragment="about" 
+                        style="color:white">Sobre Nosotros</a></li>
+                    <li><a asp-page="/Index" asp-fragment="events" 
+                        style="color:white">Eventos</a></li>
+                    <li><a asp-page="/Index" asp-fragment="chefs" 
+                        style="color:white">Servicios</a></li>
+                    <li><a asp-page="/Index" asp-fragment="gallery" 
+                        style="color:white">Galeria</a></li>
+                    <li><a asp-page="/Index" asp-fragment="contact" 
+                        style="color:white">Contactenos</a></li>
+                    <li><p style="font-size:50px" 
+                        style="color:white">|</p></li>
+                    <li><a href="#cars" 
+                        style="color:white">Vehiculos</a></li>
+                    <li><a asp-page="Usuario/Productos" 
+                        style="color:white">Productos</a></li>
+
                     <li class="dropdown">
                         <a href="#">
-                            <span>Usuario</span>
+                            <span style="color:white">Usuario</span>
                             <i class="bi bi-chevron-down dropdown-indicator"></i>
                         </a>
                         <ul>
@@ -70,7 +84,6 @@
                 </ul>
             </nav>
             <!-- .navbar -->
-            <a class="btn-book-a-table" href="#contact">Contact</a>
             <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
             <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
         </div>
@@ -83,39 +96,53 @@
     <footer id="footer" class="footer">
         <div class="container">
             <div class="row gy-3">
+                <!-- Dirección -->
                 <div class="col-lg-3 col-md-6 d-flex">
                     <i class="bi bi-geo-alt icon"></i>
                     <div>
                         <h4>Dirección</h4>
                         <p>
-                            Avenida de los Vehículos <br />
-                            Ciudad de Autos, CP 535022 - CR<br />
+                            650 metros oeste de la Fuente de la Hispanidad<br />
+                            San Pedro, San José, Costa Rica.
                         </p>
                     </div>
                 </div>
 
+                <!-- Contacto -->
+                <div class="col-lg-3 col-md-6 footer-links d-flex">
+                    <i class="bi bi-envelope icon"></i>
+                    <div>
+                        <h4>Correo Electrónico</h4>
+                        <p>
+                            consultas@luxurycars.ac.cr
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Teléfono -->
                 <div class="col-lg-3 col-md-6 footer-links d-flex">
                     <i class="bi bi-telephone icon"></i>
                     <div>
-                        <h4>Reservas</h4>
+                        <h4>Teléfono</h4>
                         <p>
-                            <strong>Teléfono:</strong> +506 2222-2222<br />
-                            <strong>Correo Electrónico:</strong> info@ejemplodeconcesionaria.com<br />
+                            +506 8020 7020
                         </p>
                     </div>
                 </div>
 
+                <!-- Horario de Atención -->
                 <div class="col-lg-3 col-md-6 footer-links d-flex">
                     <i class="bi bi-clock icon"></i>
                     <div>
                         <h4>Horario de Atención</h4>
                         <p>
-                            <strong>Lun-Sáb: 11:00 AM</strong> - 11:00 PM<br />
-                            Domingo: Cerrado
+                            Lun-Sáb: 7:00 AM - 11:00 PM<br />
+                            Domingo: 7:00 AM - 5 PM
                         </p>
                     </div>
                 </div>
 
+                <!-- Redes Sociales (opcional) -->
                 <div class="col-lg-3 col-md-6 footer-links">
                     <h4>Síguenos</h4>
                     <div class="social-links d-flex">
@@ -131,7 +158,7 @@
         <div class="container">
             <div class="copyright">
                 &copy; 2023 -
-                <strong><span>ProyectoProgramaciónAvanzadaWeb</span></strong>. Todos los derechos reservados
+                <strong><span>Luxury Cars fue hecho por el Grupo conformado por Diego Vargas Salas, Anthony Dario Fajardo Villachica, Minor Alonso Pereira Villalobos y Daniel Jesus Diaz Chong </span></strong>. Todos los derechos reservados
             </div>
             <div class="credits">
                 <!-- Todos los enlaces en el pie de página deben mantenerse intactos. -->
