@@ -7,7 +7,7 @@ GO
 CREATE TABLE TipoCombustibles (
     IdCombustible INT IDENTITY(1, 1) PRIMARY KEY,
     TipoCombustible VARCHAR(30) UNIQUE
-);
+)
 GO
 
 CREATE TABLE TipoTransmisiones (
@@ -48,8 +48,8 @@ CREATE TABLE Carros (
     ColorInterior VARCHAR(50),
     FechaIngreso DATE,
     Placa VARCHAR(25),
-    IdFinanciamiento INT,
-    Apartado VARCHAR(3),
+    IdFinanciamiento INT NULL,
+    Apartado VARCHAR(3) NULL,
     Precio DECIMAL(10, 2),
     FOREIGN KEY (IdModelo) REFERENCES ModelosCarros(IdModelo),
     FOREIGN KEY (IdCombustible) REFERENCES TipoCombustibles(IdCombustible),
@@ -160,7 +160,7 @@ CREATE TABLE CarritoDeCompras (
     IdEstado INT,
     Total DECIMAL(10, 2),
     FechaCreacion DATETIME,
-    IdUsuario INT,
+    IdUsuario INT NULL,
 	FOREIGN KEY (IdEstado) REFERENCES Estados(IdEstado),
     FOREIGN KEY (IdProducto) REFERENCES Productos(IdProducto),
     FOREIGN KEY (IdUsuario) REFERENCES Usuarios(IdUsuario)
