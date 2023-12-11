@@ -26,6 +26,7 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Carro
 
         public async Task OnGetAsync()
         {
+
             string baseUrl = _configuration["ApiSettings:baseUrl"];
             string apiEndpoint = "Carros";
 

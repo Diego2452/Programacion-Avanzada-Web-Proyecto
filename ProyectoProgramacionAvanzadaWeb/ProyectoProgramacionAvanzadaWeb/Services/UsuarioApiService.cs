@@ -53,6 +53,8 @@ namespace ProyectoProgramacionAvanzadaWeb.Services
         {
             string apiEndpoint = "usuarios";
 
+            usuario.Contrasenna = BCrypt.Net.BCrypt.HashPassword(usuario.Contrasenna);
+
             using (HttpClient client = new HttpClient())
             {
                 try

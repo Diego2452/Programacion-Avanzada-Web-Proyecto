@@ -25,6 +25,13 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Carro
 
         public async Task<IActionResult> OnGet()
         {
+            string accessToken = HttpContext.Session.GetString("AccessToken");
+
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                return RedirectToPage("/Index");
+            }
+
             try
             {
                 await SelectLists();

@@ -28,6 +28,13 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Categorias
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            string accessToken = HttpContext.Session.GetString("AccessToken");
+
+            if (string.IsNullOrEmpty(accessToken))
+            {
+                return RedirectToPage("/Index");
+            }
+
             if (id == null)
             {
                 Message = "ID no proporcionado.";

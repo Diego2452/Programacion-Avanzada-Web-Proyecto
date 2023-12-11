@@ -53,11 +53,11 @@ namespace ProyectoProgramacionAvanzadaWeb.Models
 
         [Required(ErrorMessage = "El campo IdFinanciamiento es obligatorio.")]
         [Display(Name = "Tipo de Financiamiento")]
-        public int IdFinanciamiento { get; set; }
+        public int? IdFinanciamiento { get; set; }
 
         [Required(ErrorMessage = "El campo Apartado es obligatorio.")]
         [StringLength(3, ErrorMessage = "El campo Apartado debe tener como máximo 3 caracteres.")]
-        public string Apartado { get; set; }
+        public string? Apartado { get; set; }
 
         [Required(ErrorMessage = "El campo Precio es obligatorio.")]
         [Range(0.01, 1000000.00, ErrorMessage = "El campo Precio debe estar entre 0.01 y 1,000,000.00")]

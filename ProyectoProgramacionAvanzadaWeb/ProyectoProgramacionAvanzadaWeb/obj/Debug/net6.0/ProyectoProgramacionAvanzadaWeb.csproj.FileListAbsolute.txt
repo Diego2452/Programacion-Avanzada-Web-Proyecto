@@ -814,3 +814,4 @@ C:\Users\antho\Documents\GitHub\Programacion-Avanzada-Web-Proyecto\ProyectoProgr
 C:\Users\antho\Documents\GitHub\Programacion-Avanzada-Web-Proyecto\ProyectoProgramacionAvanzadaWeb\ProyectoProgramacionAvanzadaWeb\obj\Debug\net6.0\ProyectoProgramacionAvanzadaWeb.genruntimeconfig.cache
 C:\Users\antho\Documents\GitHub\Programacion-Avanzada-Web-Proyecto\ProyectoProgramacionAvanzadaWeb\ProyectoProgramacionAvanzadaWeb\obj\Debug\net6.0\ref\ProyectoProgramacionAvanzadaWeb.dll
 C:\Users\antho\Documents\GitHub\Programacion-Avanzada-Web-Proyecto\ProyectoProgramacionAvanzadaWeb\ProyectoProgramacionAvanzadaWeb\obj\Debug\net6.0\ProyectoProgramacionAvanzadaWeb.sourcelink.json
+C:\Users\antho\Documents\GitHub\Programacion-Avanzada-Web-Proyecto\ProyectoProgramacionAvanzadaWeb\ProyectoProgramacionAvanzadaWeb\bin\Debug\net6.0\BCrypt.Net-Next.dll

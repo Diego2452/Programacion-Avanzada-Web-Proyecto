@@ -16,6 +16,7 @@ builder.Services.AddSwaggerGen();
 // JWT Bearer
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
+    options.SaveToken = true;
     options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
     {
         ValidateIssuer = true,
@@ -48,6 +49,8 @@ if (app.Environment.IsDevelopment())
 //.AllowAnyMethod().AllowAnyHeader());
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProyectoProgramacionAvanzadaWebApi.Data;
 using ProyectoProgramacionAvanzadaWebApi.Models;
@@ -7,6 +8,7 @@ namespace ProyectoProgramacionAvanzadaWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize]
     public class UsuariosController : ControllerBase
     {
         private readonly LuxuryCarsContext _context;

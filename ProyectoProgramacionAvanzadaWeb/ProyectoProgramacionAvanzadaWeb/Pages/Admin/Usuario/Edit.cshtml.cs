@@ -11,14 +11,24 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Usuario
 {
     public class EditModel : PageModel
     {
-        private readonly IConfiguration _configuration;
         private readonly UsuarioApiService _usuarioApiService;
+        TipoIdentificacionesApiService _tipoIdentificacionesApiService;
+        RolesApiService _rolapiService;
+        GenerosApiService _generoApiService;
         public string Message { get; set; }
 
-        public EditModel(IConfiguration configuration, UsuarioApiService usuarioApiService)
+        public EditModel(
+            UsuarioApiService usuarioApiService,
+            TipoIdentificacionesApiService tipoIdentificacionesApiService,
+            RolesApiService rolapiService,
+            GenerosApiService generoApiService
+            )
         {
-            _configuration = configuration;
             _usuarioApiService = usuarioApiService;
+            _tipoIdentificacionesApiService = tipoIdentificacionesApiService;
+            _rolapiService = rolapiService;
+            _generoApiService = generoApiService;
+
         }
 
         [BindProperty]
@@ -72,63 +82,15 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Admin.Usuario
 
         private async Task SelectLists()
         {
-            ViewData["IdTipoIdentificacion"] = new SelectList(await GetTipoIdentificacionesAsync(), "IdIdentificacion", "TipoIdentificacion");
-            ViewData["IdGenero"] = new SelectList(await GetGenerosAsync(), "IdGenero", "TipoGenero");
-            ViewData["IdRol"] = new SelectList(await GetRolesAsync(), "IdRol", "NombreRol");
+            var (tipoIdentificacion, _) = await _tipoIdentificacionesApiService.ObtenerTipoIdentificacionesAsync();
+            ViewData["IdTipoIdentificacion"] = tipoIdentificacion != null ? new SelectList(tipoIdentificacion, "IdIdentificacion", "TipoIdentificacion") : null;
+
+            var (genero, _) = await _generoApiService.ObtenerGenerosAsync();
+            ViewData["IdGenero"] = genero != null ? new SelectList(genero, "IdGenero", "TipoGenero") : null;
+
+            var(rol, _) = await _rolapiService.ObtenerRolesAsync();
+            ViewData["IdRol"] = rol != null ? new SelectList(rol, "IdRol", "NombreRol") : null;
         }
-        public async Task<List<TipoIdentificaciones>> GetTipoIdentificacionesAsync()
-        {
-            string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = "tipoidentificaciones";
 
-            using (HttpClient client = new HttpClient())
-            {
-                HttpResponseMessage response = await client.GetAsync($"{baseUrl}{apiEndpoint}");
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var content = await response.Content.ReadAsStringAsync();
-                    List<TipoIdentificaciones> tipoIdentificaciones = JsonConvert.DeserializeObject<List<TipoIdentificaciones>>(content);
-                    return tipoIdentificaciones;
-                }
-                return null;
-            }
-        }
-        public async Task<List<Genero>> GetGenerosAsync()
-        {
-            string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = "Generos";
-
-            using (HttpClient client = new HttpClient())
-            {
-                HttpResponseMessage response = await client.GetAsync($"{baseUrl}{apiEndpoint}");
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var content = await response.Content.ReadAsStringAsync();
-                    List<Genero> Generos = JsonConvert.DeserializeObject<List<Genero>>(content);
-                    return Generos;
-                }
-                return null;
-            }
-        }
-        public async Task<List<Roles>> GetRolesAsync()
-        {
-            string baseUrl = _configuration["ApiSettings:baseUrl"];
-            string apiEndpoint = "roles";
-
-            using (HttpClient client = new HttpClient())
-            {
-                HttpResponseMessage response = await client.GetAsync($"{baseUrl}{apiEndpoint}");
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var content = await response.Content.ReadAsStringAsync();
-                    List<Roles> roles = JsonConvert.DeserializeObject<List<Roles>>(content);
-                    return roles;
-                }
-                return null;
-            }
-        }
     }
 }

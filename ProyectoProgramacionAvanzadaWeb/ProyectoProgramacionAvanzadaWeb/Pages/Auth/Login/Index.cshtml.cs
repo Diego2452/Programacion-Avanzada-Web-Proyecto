@@ -49,6 +49,42 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages.Auth.Login
 
                     if (response.IsSuccessStatusCode)
                     {
+                        string responseData = await response.Content.ReadAsStringAsync();
+                        var result = JsonConvert.DeserializeAnonymousType(responseData, new
+                        {
+                            tokenData = new
+                            {
+                                access_token = "",
+                                token_type = "",
+                                expires_in = 0,
+                                exp = 0,
+                                refresh_token = ""
+                            },
+                            userData = new
+                            {
+                                idUsuario = 0,
+                                idTipoIdentificacion = 0,
+                                idRol = 0,
+                                identificacion = "",
+                                nombre = "",
+                                apellido_Materno = "",
+                                apellido_Paterno = "",
+                                email = "",
+                                contrasenna = "",
+                                idGenero = 0,
+                                telefono = "",
+                                direccion = "",
+                                genero = "",
+                                tipoIdentificacion = "",
+                                rol = ""
+                            }
+                        });
+
+                        string userDataJson = JsonConvert.SerializeObject(result.userData);
+
+                        HttpContext.Session.SetString("UserData", userDataJson);
+                        HttpContext.Session.SetString("AccessToken", result.tokenData.access_token);
+
                         TempData["SuccessMessage"] = "Operación exitosa: El usuario ha iniciado sesión correctamente.";
                         return RedirectToPage("/Admin/Index");
                     }

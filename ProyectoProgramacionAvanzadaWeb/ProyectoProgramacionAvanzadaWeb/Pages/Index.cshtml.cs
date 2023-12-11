@@ -6,6 +6,8 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
+        public bool EsUsuarioAutenticado { get; set; }
+
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
@@ -13,7 +15,9 @@ namespace ProyectoProgramacionAvanzadaWeb.Pages
 
         public void OnGet()
         {
-
+            string accessToken = HttpContext.Session.GetString("AccessToken");
+            ViewData["EsUsuarioAutenticado"] = !string.IsNullOrEmpty(accessToken);
         }
+
     }
 }
